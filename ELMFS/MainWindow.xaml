@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ELMFS"
         mc:Ignorable="d"
-        Title="Euston Leisure Message Filtering Service" Height="380" Width="700">
+        Title="Euston Leisure Message Filtering Service" Height="380" Width="650">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="500"/>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -19,5 +20,86 @@
             <RowDefinition Height="40"/>
             <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
+        
+        <!--Header Text-->
+        <StackPanel Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">Header:</Label>
+        </StackPanel>
+        <!--Header TextBox-->
+        <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtHeader" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
+        
+        <!--Sender Text-->
+        <StackPanel Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">Sender:</Label>
+        </StackPanel>
+        <!--Sender TextBox-->
+        <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtSender" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
+        
+        <!--Subject Text-->
+        <StackPanel Grid.Column="0" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">Subject:</Label>
+        </StackPanel>
+        <!--Subject TextBox-->
+        <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtSubject" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
+        
+        <!--Sport Centre Code Text-->
+        <StackPanel Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">
+                <TextBlock TextWrapping="WrapWithOverflow">Sport Centre Code:</TextBlock>
+            </Label>
+        </StackPanel>
+        <!--Sport Centre Code TextBox-->
+        <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtSCC" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
+        
+        <!--Nature of Incident Text-->
+        <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">
+                <TextBlock TextWrapping="WrapWithOverflow">Nature of Incident:</TextBlock>
+            </Label>
+        </StackPanel>
+        <!--Nature of Incident TextBox-->
+        <StackPanel Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtNOI" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
+        
+        <!--Message Text-->
+        <StackPanel Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Label Margin="0,10,10,5">Message:</Label>
+        </StackPanel>
+        <!--Message TextBox-->
+        <StackPanel Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtMessage" Width="350" Height="130" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
+        
+        
+        <!--Significant Incident Reports Button-->
+        <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="btnSIR" Width="100" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock TextWrapping="WrapWithOverflow"> Significant Incident Report</TextBlock>
+            </Button>
+        </StackPanel>
+        
+        <!--Trending Button-->
+        <StackPanel Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="btnTrending" Width="100" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center">Trending</Button>
+        </StackPanel>
+        
+        <!--Mentions Button-->
+        <StackPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="btnMentions" Width="100" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center">Mentions</Button>
+        </StackPanel>
+
+        <!--Add Button-->
+        <StackPanel Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="btnAdd" Width="100" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center">Add</Button>
+        </StackPanel>
     </Grid>
 </Window>
