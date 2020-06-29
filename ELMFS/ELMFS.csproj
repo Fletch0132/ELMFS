@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Message.cs" />
     <Compile Include="TypeEmail\Email.cs" />
     <Compile Include="TypeEmail\EmailQuarantine.cs" />
     <Compile Include="TypeEmail\EmailSIR.cs" />
