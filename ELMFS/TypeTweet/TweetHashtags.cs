@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Author: Fletcher Thomas Moore
+//Description: Handles any hashtags within the message body, writes them to a hashtag list, and counts them to make a trending list. Connected to Tweet.cs
+//Start Date: 29/06/2020
+//End Date: 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
