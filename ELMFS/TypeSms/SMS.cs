@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Author: Fletcher Thomas Moore
+//Description: Handles the SMS type messages, including the Textspeak Abbreviations 
+//Start Date: 29/06/2020
+//End Date: 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
