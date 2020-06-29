@@ -1,5 +1,5 @@
 ﻿//Author: Fletcher Thomas Moore
-//Description: Handles the SMS type messages, including the Textspeak Abbreviations 
+//Description: Handles the SMS type messages, including the Textspeak Abbreviations. Connected to MainWindow.xaml.cs 
 //Start Date: 29/06/2020
 //End Date: 
 using System;
