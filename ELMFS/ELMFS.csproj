@@ -59,6 +59,9 @@
     <Compile Include="TypeEmail\EmailQuarantine.cs" />
     <Compile Include="TypeEmail\EmailSIR.cs" />
     <Compile Include="TypeSms\SMS.cs" />
+    <Compile Include="TypeTweet\Tweet.cs" />
+    <Compile Include="TypeTweet\TweetHashtags.cs" />
+    <Compile Include="TypeTweet\TweetMentions.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
