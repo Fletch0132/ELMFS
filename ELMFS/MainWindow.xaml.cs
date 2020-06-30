@@ -27,15 +27,46 @@ namespace ELMFS
         public MainWindow()
         {
             InitializeComponent();
+            //Disable Email Related Inputs
+            txtSCC.IsEnabled = false;
+            txtNOI.IsEnabled = false;
         }
 
         //Determines the message type from the header and what should be displayed
         private void txtHeader_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //select character and select type from character
-            if ((txtHeader.Text.Substring(0, 1) == "S") || (txtHeader.Text.Substring(0,1) == "s"))
+            try
             {
-
+                //select character and select type from character
+                if ((txtHeader.Text.Substring(0, 1) == "S") || (txtHeader.Text.Substring(0, 1) == "s"))
+                {
+                    txtSCC.IsEnabled = false;
+                    txtNOI.IsEnabled = false;
+                }
+                else if ((txtHeader.Text.Substring(0, 1) == "E") || (txtHeader.Text.Substring(0, 1) == "e"))
+                {
+                    txtSCC.IsEnabled = true;
+                    txtNOI.IsEnabled = true;
+                }
+                else if ((txtHeader.Text.Substring(0, 1) == "T") || (txtHeader.Text.Substring(0, 1) == "t"))
+                {
+                    txtSCC.IsEnabled = false;
+                    txtNOI.IsEnabled = false;
+                }
+                else if ((txtHeader.Text == "") || (txtHeader.Text.Substring(0, 1) == ""))
+                {
+                    txtSCC.IsEnabled = false;
+                    txtNOI.IsEnabled = false;
+                }
+                else
+                {
+                    txtSCC.IsEnabled = false;
+                    txtNOI.IsEnabled = false;
+                }
+            }
+            catch(ArgumentOutOfRangeException)
+            {
+                return;
             }
         }
     }
