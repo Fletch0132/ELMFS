@@ -111,7 +111,7 @@
 
         <!--Add Button-->
         <StackPanel Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="btnAdd" Width="100" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center">Add</Button>
+            <Button x:Name="btnAdd" Width="100" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnAdd_Click">Add</Button>
         </StackPanel>
     </Grid>
 </Window>
