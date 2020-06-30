@@ -27,7 +27,7 @@
         </StackPanel>
         <!--Header TextBox-->
         <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="txtHeader" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+            <TextBox x:Name="txtHeader" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0" TextChanged="txtHeader_TextChanged"></TextBox>
         </StackPanel>
         
         <!--Sender Text-->

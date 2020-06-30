@@ -28,5 +28,15 @@ namespace ELMFS
         {
             InitializeComponent();
         }
+
+        //Determines the message type from the header and what should be displayed
+        private void txtHeader_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            //select character and select type from character
+            if ((txtHeader.Text.Substring(0, 1) == "S") || (txtHeader.Text.Substring(0,1) == "s"))
+            {
+
+            }
+        }
     }
 }
