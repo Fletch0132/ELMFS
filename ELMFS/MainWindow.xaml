@@ -67,7 +67,19 @@
         </StackPanel>
         <!--Nature of Incident TextBox-->
         <StackPanel Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="txtNOI" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+            <ComboBox x:Name="txtNOI" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0">
+                <ComboBoxItem>Theft of Properties</ComboBoxItem>
+                <ComboBoxItem>Staff Attack</ComboBoxItem>
+                <ComboBoxItem>Device Damage</ComboBoxItem>
+                <ComboBoxItem>Raid</ComboBoxItem>
+                <ComboBoxItem>Customer Attack</ComboBoxItem>
+                <ComboBoxItem>Staff Abuse</ComboBoxItem>
+                <ComboBoxItem>Bomb threat</ComboBoxItem>
+                <ComboBoxItem>Terrorism</ComboBoxItem>
+                <ComboBoxItem>Suspicious Incident</ComboBoxItem>
+                <ComboBoxItem>Sport Injury</ComboBoxItem>
+                <ComboBoxItem>Personal Info Leak</ComboBoxItem>
+            </ComboBox>
         </StackPanel>
         
         <!--Message Text-->
