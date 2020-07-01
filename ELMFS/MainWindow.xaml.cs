@@ -135,6 +135,10 @@ namespace ELMFS
 
 
             #region Sports Centre Code
+            //Store SCC
+            mainSCC = txtSCC.Text;
+
+            //Pass to Email.cs
 
             #endregion
 
