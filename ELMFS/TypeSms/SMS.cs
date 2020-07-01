@@ -12,24 +12,31 @@ namespace ELMFS.TypeSms
 {
     class SMS
     {
-        public static void SmsSender(string mainSender)
+        public static bool SmsSender(string mainSender)
         {
             //Validate input is numeric
+            int count = 0;
             foreach (char c in mainSender)
             {
-                if(c<'0' || c >'9')
+                count++;
+                if (c < '0' || c > '9')
                 {
-                    System.Windows.MessageBox.Show("Error: Sender for an SMS message must be numeric.");
-                    return;
+                    return false;
                 }
             }
-            
+
             //validate size - Max 11 digits
-            if(Int32.Parse(mainSender) >= 11)
+            if ((count >= 12) || (count<=10))
             {
-                System.Windows.MessageBox.Show("Error: Sender for SMS message can't be more than 11 digits.");
-                return;
+
+                return false;
             }
+            else
+            {
+                return true;
+            }
+
+
         }
     }
 }

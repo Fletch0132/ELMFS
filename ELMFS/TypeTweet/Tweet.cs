@@ -12,5 +12,9 @@ namespace ELMFS.TypeTweet
 {
     class Tweet
     {
+        public static bool TweetSender(string mainSender)
+        {
+
+        }
     }
 }

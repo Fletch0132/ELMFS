@@ -72,7 +72,7 @@ namespace ELMFS
         //When ADD button clicked by user
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            //Variables 
+            //Variables from input
             string mainHeader;
             string mainSender;
             string mainSubject;
@@ -81,21 +81,29 @@ namespace ELMFS
             string mainMessage;
             string mainType;
 
-            
+            //Variables after validation
+            string finalHeader;
+            string finalSender;
+            string finalSubject;
+            string finalSCC;
+            string finalNOI;
+            string finalMessage;
+
+
             #region Header
             //Regular Expression Defined - First character is a letter followed by 9 digits
             Regex rxHeader = new Regex(@"^[a-zA-Z][0-9]{9}$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
             
             //Store value in temp variable
-            string tempHeader = txtHeader.Text;
+            mainHeader = txtHeader.Text;
             
             //Validate
-            Match matchHeader = rxHeader.Match(tempHeader);
+            Match matchHeader = rxHeader.Match(mainHeader);
             
             //Validate and store Header - match input to regex, if matches store, if not then display error
             if (matchHeader.Success)
             {
-                mainHeader = txtHeader.Text.ToUpper();
+                finalHeader = txtHeader.Text.ToUpper();
             }
             else
             {
@@ -116,14 +124,52 @@ namespace ELMFS
             {
                 //call SMS method and pass user input
                 SMS.SmsSender(mainSender);
+
+                if (SMS.SmsSender(mainSender))
+                {
+                    //complete
+                    finalSender = mainSender;
+                }
+                else
+                {
+                    //Error Message
+                    MessageBox.Show("Error: SMS must be numeric and 11 digits long.");
+                    return;
+                }
             }
             else if(mainType == "E")
             {
-                //call Email Method
+                //call Email Method and pass user input
+                Email.EmailSender(mainSender);
+
+                if(Email.EmailSender(mainSender))
+                {
+                    //complete
+                    finalSender = mainSender;
+                }
+                else
+                {
+                    //Error message
+                    MessageBox.Show("Error: Email Sender format is incorrect. Must be an Email Address format.");
+                    return;
+                }
             }
             else
             {
-                //call Tweet Method
+                //call Tweet Method and pass user input
+                Tweet.TweetSender(mainSender);
+
+                if(Tweet.TweetSender(mainSender))
+                {
+                    //Complete
+                    finalSender = mainSender;
+                }
+                else
+                {
+                    //Error message
+                    MessageBox.Show("Error: Tweet Sender must start with '@' and no longer than 15 characters. ");
+                    return;
+                }
             }
 
             //Store Sender from SMS, Email, or Tweet
