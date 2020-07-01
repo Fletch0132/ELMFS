@@ -114,7 +114,7 @@ namespace ELMFS
             //Decide sender depending on type
             if(mainType == "S")
             {
-                //call SMS method
+                //call SMS method and pass user input
                 SMS.SmsSender(mainSender);
             }
             else if(mainType == "E")
