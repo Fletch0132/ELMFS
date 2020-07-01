@@ -144,7 +144,8 @@ namespace ELMFS
 
 
             #region Nature of Incident
-
+            //store Nature of Incident selection
+            mainNOI = txtNOI.SelectedItem.ToString();
             #endregion
 
 
