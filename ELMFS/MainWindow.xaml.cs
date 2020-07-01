@@ -122,6 +122,9 @@ namespace ELMFS
             {
                 //call Tweet Method
             }
+
+            //Store Sender from SMS, Email, or Tweet
+            //mainSender = 
             #endregion
 
 
@@ -150,7 +153,22 @@ namespace ELMFS
 
 
             #region Message
+            //Determine message requirements from type
+            if (mainType == "S")
+            {
+                //Pass to SMS.cs
+            }
+            else if (mainType == "E")
+            {
+                //Pass to Email.cs
+            }
+            else
+            {
+                //Pass to Tweet.cs
+            }
 
+            //Store message passed back from SMS, Email, or Tweet
+            //mainMessage = 
             #endregion
         }
     }
