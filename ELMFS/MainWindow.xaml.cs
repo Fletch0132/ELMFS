@@ -124,6 +124,29 @@ namespace ELMFS
             }
             #endregion
 
+
+            #region Subject
+            //store subject
+            mainSubject = txtSubject.Text;
+
+            //pass to Email.cs
+
+            #endregion
+
+
+            #region Sports Centre Code
+
+            #endregion
+
+
+            #region Nature of Incident
+
+            #endregion
+
+
+            #region Message
+
+            #endregion
         }
     }
 }
