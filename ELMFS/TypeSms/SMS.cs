@@ -12,5 +12,9 @@ namespace ELMFS.TypeSms
 {
     class SMS
     {
+        public static void SmsSender(string mainSender)
+        {
+
+        }
     }
 }

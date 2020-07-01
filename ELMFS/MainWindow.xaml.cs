@@ -108,11 +108,14 @@ namespace ELMFS
             #region Sender
             //store message type
             mainType = txtHeader.Text.Substring(0, 1).ToUpper();
+            //Store input
+            mainSender = txtSender.Text;
 
             //Decide sender depending on type
             if(mainType == "S")
             {
                 //call SMS method
+                SMS.SmsSender(mainSender);
             }
             else if(mainType == "E")
             {
