@@ -21,6 +21,7 @@ namespace ELMFS
         {
             InitializeComponent();
             //Disable Email Related Inputs
+            txtSubject.IsEnabled = false;
             txtSCC.IsEnabled = false;
             txtNOI.IsEnabled = false;
         }
@@ -34,30 +35,35 @@ namespace ELMFS
                 //if the first character is "S" or "s" then email components remain disabled
                 if ((txtHeader.Text.Substring(0, 1) == "S") || (txtHeader.Text.Substring(0, 1) == "s"))
                 {
+                    txtSubject.IsEnabled = false;
                     txtSCC.IsEnabled = false;
                     txtNOI.IsEnabled = false;
                 }
                 //if the first character is "E" or "e" then email components enabled
                 else if ((txtHeader.Text.Substring(0, 1) == "E") || (txtHeader.Text.Substring(0, 1) == "e"))
                 {
+                    txtSubject.IsEnabled = true;
                     txtSCC.IsEnabled = true;
                     txtNOI.IsEnabled = true;
                 }
                 //if the first character is "T" or "t" then email components remain disabled
                 else if ((txtHeader.Text.Substring(0, 1) == "T") || (txtHeader.Text.Substring(0, 1) == "t"))
                 {
+                    txtSubject.IsEnabled = false;
                     txtSCC.IsEnabled = false;
                     txtNOI.IsEnabled = false;
                 }
                 //if the textbox or first character empty then email components remain disabled
                 else if ((txtHeader.Text == "") || (txtHeader.Text.Substring(0, 1) == ""))
                 {
+                    txtSubject.IsEnabled = false;
                     txtSCC.IsEnabled = false;
                     txtNOI.IsEnabled = false;
                 }
                 //email components remain disabled
                 else
                 {
+                    txtSubject.IsEnabled = false;
                     txtSCC.IsEnabled = false;
                     txtNOI.IsEnabled = false;
                 }
