@@ -8,11 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using ELMFS;
+using System.Globalization;
 
 namespace ELMFS.TypeEmail
 {
     class Email
     {
+        #region Sender
         public static bool EmailSender(string mainSender)
         {
             //validate email using Regex
@@ -34,7 +37,62 @@ namespace ELMFS.TypeEmail
                 
             }
         }
+        #endregion
 
-        
+
+        #region Subject
+        public static bool EmailSubject(string mainSubject, bool tempNOI)
+        {
+            //Temp Var
+            DateTime date;
+            //Remove whitespace
+            string emailDate = mainSubject.Replace(" ", "");
+            //Focus on SIR
+            string emailSIR = mainSubject.Substring(0, 3).ToUpper();
+            //Focus on date
+            emailDate = emailDate.Substring(3,8);
+
+            //Validate date format
+            bool dateValid = DateTime.TryParseExact(emailDate, "dd/MM/yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
+
+            //determine type of subject - normal or SIR
+            //false = standard
+            if (tempNOI == false)
+            {
+                //Must not exceed 20 char
+                if(mainSubject.Length > 20)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else if(tempNOI == true)
+            {
+                if(mainSubject.Length > 20)
+                {
+                    return false;
+                }
+                else if (emailSIR != "SIR")
+                {
+                    return false;
+                }
+                else if (dateValid == false)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
     }
 }

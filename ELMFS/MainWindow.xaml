@@ -68,6 +68,7 @@
         <!--Nature of Incident TextBox-->
         <StackPanel Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center">
             <ComboBox x:Name="txtNOI" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0">
+                <ComboBoxItem>No Significant Incident</ComboBoxItem>
                 <ComboBoxItem>Theft of Properties</ComboBoxItem>
                 <ComboBoxItem>Staff Attack</ComboBoxItem>
                 <ComboBoxItem>Device Damage</ComboBoxItem>

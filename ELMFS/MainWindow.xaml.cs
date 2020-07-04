@@ -17,6 +17,8 @@ namespace ELMFS
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool tempNOI;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -26,6 +28,7 @@ namespace ELMFS
             txtNOI.IsEnabled = false;
         }
 
+        #region HeaderType
         //Determines the message type from the header and what should be displayed
         private void txtHeader_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -69,12 +72,14 @@ namespace ELMFS
                 }
             }
             //catch errors
-            catch(ArgumentOutOfRangeException)
+            catch (ArgumentOutOfRangeException)
             {
                 return;
             }
         }
+        #endregion
 
+        #region Add Button
         //When ADD button clicked by user
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -99,13 +104,13 @@ namespace ELMFS
             #region Header
             //Regular Expression Defined - First character is a letter followed by 9 digits
             Regex rxHeader = new Regex(@"^[a-zA-Z][0-9]{9}$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-            
+
             //Store value in temp variable
             mainHeader = txtHeader.Text;
-            
+
             //Validate
             Match matchHeader = rxHeader.Match(mainHeader);
-            
+
             //Validate and store Header - match input to regex, if matches store, if not then display error
             if (txtHeader.Text == " ")
             {
@@ -200,7 +205,41 @@ namespace ELMFS
             //store subject
             mainSubject = txtSubject.Text;
 
-            //pass to Email.cs
+            //determine if there should be input, pass input on for validation, no blank input
+            if (mainHeader.Substring(0, 1).ToUpper() == "E")
+            {
+                //Normal email or SIR
+                if (txtNOI.SelectedIndex == 0)
+                {
+                    //standard email
+                    tempNOI = false;
+                }
+                else
+                {
+                    //SIR email
+                    tempNOI = true;
+                }
+
+                //pass variable to Email.cs class
+                Email.EmailSubject(mainSubject, tempNOI);
+            }
+            //If blank, display error
+            else if (mainSubject == "")
+            {
+                MessageBox.Show("Error: Email Subject cannot be blank.");
+                return;
+            }
+
+            //store validated variable from Email.cs
+            if (Email.EmailSubject(mainSubject, tempNOI))
+            {
+                finalSubject = mainSubject;
+            }
+            else
+            {
+                MessageBox.Show("Error: Subject must not be blank, Significant Incident Reports must be in the format 'SIR dd/mm/yy'.");
+                return;
+            }
 
             #endregion
 
@@ -216,7 +255,9 @@ namespace ELMFS
 
             #region Nature of Incident
             //store Nature of Incident selection
-            mainNOI = txtNOI.SelectedItem.ToString();
+            mainNOI = txtNOI.SelectedIndex.ToString();
+
+
             #endregion
 
 
@@ -239,5 +280,6 @@ namespace ELMFS
             //mainMessage = 
             #endregion
         }
+        #endregion
     }
 }
