@@ -101,7 +101,12 @@ namespace ELMFS
             Match matchHeader = rxHeader.Match(mainHeader);
             
             //Validate and store Header - match input to regex, if matches store, if not then display error
-            if (matchHeader.Success)
+            if (txtHeader.Text == " ")
+            {
+                MessageBox.Show("Error: Header can not be empty.");
+                return;
+            }
+            else if (matchHeader.Success)
             {
                 finalHeader = txtHeader.Text.ToUpper();
             }
@@ -119,56 +124,64 @@ namespace ELMFS
             //Store input
             mainSender = txtSender.Text;
 
-            //Decide sender depending on type
-            if(mainType == "S")
+            if (txtSender.Text == " ")
             {
-                //call SMS method and pass user input
-                SMS.SmsSender(mainSender);
-
-                if (SMS.SmsSender(mainSender))
-                {
-                    //complete
-                    finalSender = mainSender;
-                }
-                else
-                {
-                    //Error Message
-                    MessageBox.Show("Error: SMS must be numeric and 11 digits long.");
-                    return;
-                }
-            }
-            else if(mainType == "E")
-            {
-                //call Email Method and pass user input
-                Email.EmailSender(mainSender);
-
-                if(Email.EmailSender(mainSender))
-                {
-                    //complete
-                    finalSender = mainSender;
-                }
-                else
-                {
-                    //Error message
-                    MessageBox.Show("Error: Email Sender format is incorrect. Must be an Email Address format.");
-                    return;
-                }
+                MessageBox.Show("Error: Sender can not be blank");
+                return;
             }
             else
             {
-                //call Tweet Method and pass user input
-                Tweet.TweetSender(mainSender);
-
-                if(Tweet.TweetSender(mainSender))
+                //Decide sender depending on type
+                if (mainType == "S")
                 {
-                    //Complete
-                    finalSender = mainSender;
+                    //call SMS method and pass user input
+                    SMS.SmsSender(mainSender);
+
+                    if (SMS.SmsSender(mainSender))
+                    {
+                        //complete
+                        finalSender = mainSender;
+                    }
+                    else
+                    {
+                        //Error Message
+                        MessageBox.Show("Error: SMS must be numeric and 11 digits long.");
+                        return;
+                    }
+                }
+                else if (mainType == "E")
+                {
+                    //call Email Method and pass user input
+                    Email.EmailSender(mainSender);
+
+                    if (Email.EmailSender(mainSender))
+                    {
+                        //complete
+                        finalSender = mainSender;
+                    }
+                    else
+                    {
+                        //Error message
+                        MessageBox.Show("Error: Email Sender format is incorrect. Must be an Email Address format.");
+                        return;
+                    }
                 }
                 else
                 {
-                    //Error message
-                    MessageBox.Show("Error: Tweet Sender must start with '@' and no longer than 15 characters. ");
-                    return;
+                    //call Tweet Method and pass user input
+                    Tweet.TweetSender(mainSender);
+
+                    if (Tweet.TweetSender(mainSender))
+                    {
+                        //Complete
+                        finalSender = mainSender;
+                    }
+                    else
+                    {
+                        //Error message
+                        MessageBox.Show("Error: Tweet Sender must start with '@' and no longer than 15 characters. ");
+                        return;
+                    }
                 }
             }
 

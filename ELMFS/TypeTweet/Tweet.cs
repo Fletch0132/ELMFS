@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace ELMFS.TypeTweet
 {
@@ -14,7 +15,21 @@ namespace ELMFS.TypeTweet
     {
         public static bool TweetSender(string mainSender)
         {
+            //Regex for ID
+            Regex rxTweetSender = new Regex(@"\s(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9-_]+)");
 
+            //Match
+            Match matchSender = rxTweetSender.Match(mainSender);
+
+            //handle the input
+            if(matchSender.Success)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
