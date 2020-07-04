@@ -124,7 +124,7 @@ namespace ELMFS
             //Store input
             mainSender = txtSender.Text;
 
-            if (txtSender.Text == " ")
+            if (txtSender.Text == "")
             {
                 MessageBox.Show("Error: Sender can not be blank");
                 return;
@@ -145,7 +145,7 @@ namespace ELMFS
                     else
                     {
                         //Error Message
-                        MessageBox.Show("Error: SMS must be numeric and 11 digits long.");
+                        MessageBox.Show("Error: SMS Sender must be numeric and 11 digits long.");
                         return;
                     }
                 }
