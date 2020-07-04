@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
-using ELMFS;
 using System.Globalization;
 
 namespace ELMFS.TypeEmail
@@ -87,6 +86,31 @@ namespace ELMFS.TypeEmail
                 {
                     return true;
                 }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        #endregion
+
+
+        #region Sports Centre Code
+        public static bool EmailSCC(string mainSCC, bool tempNOI)
+        {
+            //Regex declared for SCC: 11-111-11
+            Regex rxSCC = new Regex(@"^\d{2}-\d{3}-\d{2}$");
+
+            //Validate
+            Match matchSCC = rxSCC.Match(mainSCC);
+
+            if (tempNOI == false)
+            {
+                return false;
+            }
+            else if(matchSCC.Success)
+            {
+                return true;
             }
             else
             {

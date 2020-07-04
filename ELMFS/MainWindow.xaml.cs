@@ -248,8 +248,41 @@ namespace ELMFS
             //Store SCC
             mainSCC = txtSCC.Text;
 
-            //Pass to Email.cs
+            //determine if there should be input, pass input on for validation, no blank input
+            if (mainHeader.Substring(0, 1).ToUpper() == "E")
+            {
+                //Normal email or SIR
+                if (txtNOI.SelectedIndex == 0)
+                {
+                    //standard email
+                    tempNOI = false;
+                }
+                else
+                {
+                    //SIR email
+                    tempNOI = true;
+                }
 
+                //pass variable to Email.cs class
+                Email.EmailSCC(mainSubject, tempNOI);
+            }
+            //If blank, display error
+            else if (mainSCC == "")
+            {
+                MessageBox.Show("Error: Email Sports Centre Code cannot be blank.");
+                return;
+            }
+
+            //store validated variable from Email.cs
+            if (Email.EmailSCC(mainSubject, tempNOI))
+            {
+                finalSCC = mainSCC; 
+            }
+            else
+            {
+                MessageBox.Show("Error: Sports Centre Code cannot be blank for a Significant Incident Report Email!");
+                return;
+            }
             #endregion
 
 
@@ -257,6 +290,7 @@ namespace ELMFS
             //store Nature of Incident selection
             mainNOI = txtNOI.SelectedIndex.ToString();
 
+            
 
             #endregion
 
@@ -281,5 +315,7 @@ namespace ELMFS
             #endregion
         }
         #endregion
+
+       
     }
 }
