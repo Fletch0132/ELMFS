@@ -22,12 +22,13 @@ namespace ELMFS.TypeTweet
             Match matchSender = rxTweetSender.Match(mainSender);
 
             //handle the input
-            if(matchSender.Success)
+            if((matchSender.Success) && (mainSender.Length <= 15))
             {
                 return true;
             }
             else
             {
+                System.Windows.MessageBox.Show("Error: Twitter ID does not match the format. Must start with '@' and be 15 characters or less.");
                 return false;
             }
         }

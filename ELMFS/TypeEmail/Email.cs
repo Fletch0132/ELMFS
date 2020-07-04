@@ -32,8 +32,8 @@ namespace ELMFS.TypeEmail
             //Handle duplicates -- else if ((matchEmail.Success) && ()
             else
             {
+                System.Windows.MessageBox.Show("Error: Email address is invalid.");
                 return false;
-                
             }
         }
         #endregion
@@ -61,6 +61,7 @@ namespace ELMFS.TypeEmail
                 //Must not exceed 20 char
                 if(mainSubject.Length > 20)
                 {
+                    System.Windows.MessageBox.Show("Error: Subject for email cannot be greater than 20 characters.");
                     return false;
                 }
                 else
@@ -72,14 +73,17 @@ namespace ELMFS.TypeEmail
             {
                 if(mainSubject.Length > 20)
                 {
+                    System.Windows.MessageBox.Show("Error: Subject for email cannot be greater than 20 characters.");
                     return false;
                 }
                 else if (emailSIR != "SIR")
                 {
+                    System.Windows.MessageBox.Show("Error: Subject for Significant Incident Report emails must start with 'SIR'.");
                     return false;
                 }
                 else if (dateValid == false)
                 {
+                    System.Windows.MessageBox.Show("Error: Subject for Significant Incident Report emails must contain a valid date after 'SIR' in the format 'dd/mm/yy'");
                     return false;
                 }
                 else
@@ -89,6 +93,7 @@ namespace ELMFS.TypeEmail
             }
             else
             {
+                System.Windows.MessageBox.Show("Error: Something went wrong with email Subject. Please try again.");
                 return false;
             }
         }
@@ -104,16 +109,13 @@ namespace ELMFS.TypeEmail
             //Validate
             Match matchSCC = rxSCC.Match(mainSCC);
 
-            if (tempNOI == false)
-            {
-                return false;
-            }
-            else if(matchSCC.Success)
+            if ((tempNOI == true) && (matchSCC.Success))
             {
                 return true;
             }
             else
             {
+                System.Windows.MessageBox.Show("Error: Sports Centre Code does not follow correct format. Must be '66-666-99'");
                 return false;
             }
         }

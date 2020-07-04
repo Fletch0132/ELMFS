@@ -155,8 +155,6 @@ namespace ELMFS
                     }
                     else
                     {
-                        //Error Message
-                        MessageBox.Show("Error: SMS Sender must be numeric and 11 digits long.");
                         return;
                     }
                 }
@@ -172,8 +170,6 @@ namespace ELMFS
                     }
                     else
                     {
-                        //Error message
-                        MessageBox.Show("Error: Email Sender format is incorrect. Must be an Email Address format.");
                         return;
                     }
                 }
@@ -189,15 +185,10 @@ namespace ELMFS
                     }
                     else
                     {
-                        //Error message
-                        MessageBox.Show("Error: Tweet Sender must start with '@' and no longer than 15 characters. ");
                         return;
                     }
                 }
             }
-
-            //Store Sender from SMS, Email, or Tweet
-            //mainSender = 
             #endregion
 
 
@@ -237,7 +228,6 @@ namespace ELMFS
             }
             else
             {
-                MessageBox.Show("Error: Subject must not be blank, Significant Incident Reports must be in the format 'SIR dd/mm/yy'.");
                 return;
             }
 
@@ -280,7 +270,6 @@ namespace ELMFS
             }
             else
             {
-                MessageBox.Show("Error: Sports Centre Code cannot be blank for a Significant Incident Report Email!");
                 return;
             }
             #endregion

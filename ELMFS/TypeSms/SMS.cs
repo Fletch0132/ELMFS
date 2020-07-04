@@ -21,6 +21,7 @@ namespace ELMFS.TypeSms
                 count++;
                 if (c < '0' || c > '9')
                 {
+                    System.Windows.MessageBox.Show("Error: SMS Sender must be numeric.");
                     return false;
                 }
             }
@@ -28,7 +29,7 @@ namespace ELMFS.TypeSms
             //validate size - Max 11 digits
             if ((count >= 12) || (count<=10))
             {
-
+                System.Windows.MessageBox.Show("Error: SMS Sender needs to be 11 digits long.");
                 return false;
             }
             else
