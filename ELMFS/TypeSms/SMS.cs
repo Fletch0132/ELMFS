@@ -28,7 +28,7 @@ namespace ELMFS.TypeSms
             }
 
             //validate size - Max 11 digits
-            if ((count >= 12) || (count<=10))
+            if ((count >= 12) || (count <= 10))
             {
                 System.Windows.MessageBox.Show("Error: SMS Sender needs to be 11 digits long.");
                 return false;
@@ -38,15 +38,6 @@ namespace ELMFS.TypeSms
                 return true;
             }
         }
-        #endregion
-
-
-        #region Message
-        public static bool SMSMessage(string mainMessage)
-        {
-
-        }
-
         #endregion
     }
 }

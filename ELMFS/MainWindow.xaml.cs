@@ -305,8 +305,17 @@ namespace ELMFS
             //Determine message requirements from type
             else if (mainType == "S")
             {
-                //if its not blank Pass to SMS.cs
-                SMS.SMSMessage(mainMessage);
+                //if less than 140 char Pass to SMS.cs
+                if (mainMessage.Length < 140)
+                {
+                    Message.TextSpeak(mainMessage);
+                }
+                else
+                {
+                    MessageBox.Show("Error: Message body for SMS muct be less than 140 characters.");
+                    return;
+                }
+               
             }
             else if (mainType == "E")
             {
@@ -322,10 +331,7 @@ namespace ELMFS
             {
                 MessageBox.Show("Error: Something went wrong processing the message.");
                 return;
-            }
-
-            //Store message passed back from SMS, Email, or Tweet
-            //mainMessage = 
+            } 
             #endregion
         }
         #endregion
