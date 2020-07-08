@@ -12,6 +12,7 @@ namespace ELMFS.TypeSms
 {
     class SMS
     {
+        #region Sender
         public static bool SmsSender(string mainSender)
         {
             //Validate input is numeric
@@ -36,8 +37,16 @@ namespace ELMFS.TypeSms
             {
                 return true;
             }
+        }
+        #endregion
 
+
+        #region Message
+        public static bool SMSMessage(string mainMessage)
+        {
 
         }
+
+        #endregion
     }
 }

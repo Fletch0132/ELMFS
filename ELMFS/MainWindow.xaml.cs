@@ -279,24 +279,49 @@ namespace ELMFS
             //store Nature of Incident selection
             mainNOI = txtNOI.SelectedIndex.ToString();
 
-            
+            if ((mainHeader.Substring(0, 1).ToUpper() == "E") && (txtNOI.SelectedIndex <0) && (txtNOI.SelectedIndex >12))
+            {
+                MessageBox.Show("Error: Email is selected and must have a selection within Nature of Incident - if no incident select 'No Significant Incident'.");
+                return;
+            }
+            else
+            {
+                finalNOI = mainNOI;
+            }
 
             #endregion
 
 
             #region Message
-            //Determine message requirements from type
-            if (mainType == "S")
+            //store message temp
+            mainMessage = txtMessage.Text;
+
+            //Can't be blank
+            if (mainMessage == "")
             {
-                //Pass to SMS.cs
+                MessageBox.Show("Error: Message cannot be blank.");
+                return;
+            }
+            //Determine message requirements from type
+            else if (mainType == "S")
+            {
+                //if its not blank Pass to SMS.cs
+                SMS.SMSMessage(mainMessage);
             }
             else if (mainType == "E")
             {
-                //Pass to Email.cs
+                //If its not blank Pass to Email.cs
+                Email.EmailMessage(mainMessage);
+            }
+            else if (mainType == "T")
+            {
+                //If its not blank Pass to Tweet.cs
+                Tweet.TweetMessage(mainMessage);
             }
             else
             {
-                //Pass to Tweet.cs
+                MessageBox.Show("Error: Something went wrong processing the message.");
+                return;
             }
 
             //Store message passed back from SMS, Email, or Tweet

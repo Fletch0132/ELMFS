@@ -120,5 +120,13 @@ namespace ELMFS.TypeEmail
             }
         }
         #endregion
+
+
+        #region Message
+        public static bool EmailMessage(string mainMessage)
+        {
+
+        }
+        #endregion
     }
 }

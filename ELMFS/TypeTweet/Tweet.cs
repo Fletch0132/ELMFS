@@ -13,6 +13,7 @@ namespace ELMFS.TypeTweet
 {
     class Tweet
     {
+        #region Sender
         public static bool TweetSender(string mainSender)
         {
             //Regex for ID
@@ -32,5 +33,14 @@ namespace ELMFS.TypeTweet
                 return false;
             }
         }
+        #endregion
+
+
+        #region Message
+        public static bool TweetMessage(string mainMessage)
+        {
+
+        }
+        #endregion
     }
 }
