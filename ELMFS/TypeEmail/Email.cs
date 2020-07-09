@@ -123,9 +123,20 @@ namespace ELMFS.TypeEmail
 
 
         #region Message
-        public static bool EmailMessage(string mainMessage)
+        //find hyperlinks, quarantine them
+        public static string EmailMessage(string mainMessage)
         {
+            //Create URL Regex
+            Regex rxURL = new Regex(@"^(http|http(s)?://)?([\w-]+\.)+[\w-]+[.com|.in|.org]+(\[\?%&=]*)?");
 
+            //Search through message for URL(s) and replace
+            foreach(var messageURL in rxURL.Matches(mainMessage))
+            {
+                mainMessage = mainMessage.Replace(messageURL.ToString(), "<URL Quarantined>");
+            }
+
+            //return
+            return mainMessage;
         }
         #endregion
     }

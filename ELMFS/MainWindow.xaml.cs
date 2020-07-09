@@ -309,23 +309,44 @@ namespace ELMFS
                 if (mainMessage.Length < 140)
                 {
                     Message.TextSpeak(mainMessage);
+
+                    finalMessage = mainMessage;
                 }
                 else
                 {
-                    MessageBox.Show("Error: Message body for SMS muct be less than 140 characters.");
+                    MessageBox.Show("Error: Message body for SMS must be less than 140 characters.");
                     return;
                 }
                
             }
             else if (mainType == "E")
             {
-                //If its not blank Pass to Email.cs
-                Email.EmailMessage(mainMessage);
+                if (mainMessage.Length < 1028)
+                {
+                    //If its not blank Pass to Email.cs
+                    Email.EmailMessage(mainMessage);
+
+                    //final store
+                    finalMessage = mainMessage;
+                }
+                else
+                {
+                    MessageBox.Show("Error: Message body for Email must be less than 1028 characters.");
+                    return;
+                }
             }
             else if (mainType == "T")
             {
-                //If its not blank Pass to Tweet.cs
-                Tweet.TweetMessage(mainMessage);
+                if (mainMessage.Length < 140)
+                {
+                    //If its not blank Pass to Tweet.cs
+                    Tweet.TweetMessage(mainMessage);
+                }
+                else
+                {
+                    MessageBox.Show("Error: Message body for Tweet must be less than 140 characters.");
+                    return;
+                }
             }
             else
             {
