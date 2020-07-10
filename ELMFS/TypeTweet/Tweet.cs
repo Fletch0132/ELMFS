@@ -37,9 +37,30 @@ namespace ELMFS.TypeTweet
 
 
         #region Message
-        public static bool TweetMessage(string mainMessage)
+        //Finds and converts textspeak, finds and stores hashtags and mentions
+        public static string TweetMessage(string mainMessage)
         {
+            //check for textspeak
+            Message.TextSpeak(mainMessage);
 
+            //Initialize List
+            TweetHashtags tweetHashtags = new TweetHashtags();
+
+            //Regex Pattern
+            const string hashtag = @"#([A-Za-z0-9\-_&;]+)";
+            
+            //if the body contains '#'  store the #hashtag to the list
+            if(mainMessage.Contains("#"))
+            {
+                foreach (Match match in Regex.Matches(mainMessage, hashtag))
+                {
+                    var hashtagMatch = match.Groups[1].Value;
+                    tweetHashtags.Add(hashtagMatch);
+                }
+            }
+
+            //return message
+            return mainMessage;
         }
         #endregion
     }

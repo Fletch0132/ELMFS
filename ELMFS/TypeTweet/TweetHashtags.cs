@@ -12,5 +12,17 @@ namespace ELMFS.TypeTweet
 {
     class TweetHashtags
     {
+        //Hashtag List
+        private List<string> Hashtags = new List<string>();
+
+        public List<string> GetHashtagList()
+        {
+            return Hashtags;
+        }
+
+        internal void Add(string hashtagMatch)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
