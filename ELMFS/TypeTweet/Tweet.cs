@@ -43,19 +43,31 @@ namespace ELMFS.TypeTweet
             //check for textspeak
             Message.TextSpeak(mainMessage);
 
-            //Initialize List
+            //Initialize Lists
             TweetHashtags tweetHashtags = new TweetHashtags();
+            TweetMentions tweetMentions = new TweetMentions();
 
-            //Regex Pattern
+            //Match Pattern
             const string hashtag = @"#([A-Za-z0-9\-_&;]+)";
-            
-            //if the body contains '#'  store the #hashtag to the list
-            if(mainMessage.Contains("#"))
+            const string mention = @"@([A-Za-z0-9\-_&;]+)";
+
+            //if the body contains '#' store the #hashtag to the list
+            if (mainMessage.Contains("#"))
             {
                 foreach (Match match in Regex.Matches(mainMessage, hashtag))
                 {
                     var hashtagMatch = match.Groups[1].Value;
                     tweetHashtags.Add(hashtagMatch);
+                }
+            }
+
+            //if the body contains '@' store the @mention to the list
+            if (mainMessage.Contains("@"))
+            {
+                foreach(Match match in Regex.Matches(mainMessage, mention))
+                {
+                    var mentionMatch = match.Groups[1].Value;
+                    TweetMentions.Add(mentionMatch);
                 }
             }
 

@@ -12,5 +12,17 @@ namespace ELMFS.TypeTweet
 {
     class TweetMentions
     {
+        //Mentions List
+        private List<string> Mentions = new List<string>();
+
+        public List<string> GetMentionsList()
+        {
+            return Mentions;
+        }
+
+        internal static void Add(string mentionMatch)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
