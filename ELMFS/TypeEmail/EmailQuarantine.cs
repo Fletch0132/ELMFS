@@ -12,5 +12,22 @@ namespace ELMFS.TypeEmail
 {
     class EmailQuarantine
     {
+        //Quarantine List 
+        private List<string> Quarantine = new List<string>();
+
+        public List<string> GetQuarantineList()
+        {
+            return Quarantine;
+        }
+
+        internal void Add(string url)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static bool Contains(string url)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

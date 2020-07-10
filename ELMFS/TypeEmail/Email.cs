@@ -127,12 +127,24 @@ namespace ELMFS.TypeEmail
         public static string EmailMessage(string mainMessage)
         {
             //Create URL Regex
-            Regex rxURL = new Regex(@"^(http|http(s)?://)?([\w-]+\.)+[\w-]+[.com|.in|.org]+(\[\?%&=]*)?");
+            const string hyperlink = (@"^(http|http(s)?://)?([\w-]+\.)+[\w-]+[.com|.in|.org]+(\[\?%&=]*)?");
+
+            //Quarantine List
+            EmailQuarantine emailQuarantine = new EmailQuarantine();
 
             //Search through message for URL(s) and replace
-            foreach(var messageURL in rxURL.Matches(mainMessage))
+            foreach(Match match in Regex.Matches(mainMessage, hyperlink))
             {
-                mainMessage = mainMessage.Replace(messageURL.ToString(), "<URL Quarantined>");
+                var url = match.Groups[1].Value;
+
+                //if the url isn#t in list then add it
+                if (!EmailQuarantine.Contains(url))
+                {
+                    emailQuarantine.Add(url);
+                }
+
+                //replace url with Quarantine
+                mainMessage = mainMessage.Replace(hyperlink.ToString(), "<URL Quarantined>");
             }
 
             //return
