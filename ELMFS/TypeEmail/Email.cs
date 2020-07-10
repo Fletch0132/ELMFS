@@ -122,6 +122,21 @@ namespace ELMFS.TypeEmail
         #endregion
 
 
+        #region SIR List
+        //Add subject, Sports Centre Code, and Nature of Incident to list (Only supposed to be SCC and NOI but feel subject 
+        //will helpwith identification if need be
+        public static void EmailSIRList(string finalSubject, string finalSCC, string finalNOI)
+        {
+            //initialize list
+            EmailSIR emailSIR = new EmailSIR();
+
+            //add subject, SCC and NOI to list 
+            emailSIR.Add(finalSubject, finalSCC, finalNOI);
+        }
+
+        #endregion
+
+
         #region Message
         //find hyperlinks, quarantine them
         public static string EmailMessage(string mainMessage)

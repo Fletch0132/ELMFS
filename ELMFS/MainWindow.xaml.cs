@@ -292,6 +292,12 @@ namespace ELMFS
             #endregion
 
 
+            #region Write to SIR List
+            //pass subject, SCC and NOI to write to SIR List
+            Email.EmailSIRList(finalSubject, finalSCC, finalNOI);
+            #endregion
+
+
             #region Message
             //store message temp
             mainMessage = txtMessage.Text;
