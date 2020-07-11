@@ -41,7 +41,7 @@ namespace ELMFS.TypeTweet
         public static string TweetMessage(string mainMessage)
         {
             //check for textspeak
-            Message.TextSpeak(mainMessage);
+            Textspeak.TextSpeak(mainMessage);
 
             //Initialize Lists
             TweetHashtags tweetHashtags = new TweetHashtags();

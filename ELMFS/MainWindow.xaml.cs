@@ -316,7 +316,7 @@ namespace ELMFS
                 //if less than 140 char Pass to SMS.cs
                 if (mainMessage.Length < 140)
                 {
-                    Message.TextSpeak(mainMessage);
+                    Textspeak.TextSpeak(mainMessage);
 
                     finalMessage = mainMessage;
                 }
