@@ -11,6 +11,7 @@ using ELMFS.TypeSms;
 using ELMFS.TypeTweet;
 using Newtonsoft.Json;
 using System.IO;
+using System.Collections.Generic;
 
 namespace ELMFS
 {
@@ -29,6 +30,20 @@ namespace ELMFS
             txtSCC.IsEnabled = false;
             txtNOI.IsEnabled = false;
         }
+
+        #region Clear All
+        //Clear everything when called
+        public void ClearAll()
+        {
+            txtHeader.Text = "";
+            txtSender.Text = "";
+            txtSubject.Text = "";
+            txtSCC.Text = "";
+            txtNOI.Items.Clear();
+            txtMessage.Text = "";
+        }
+        #endregion
+
 
         #region HeaderType
         //Determines the message type from the header and what should be displayed
@@ -81,10 +96,12 @@ namespace ELMFS
         }
         #endregion
 
+
         #region Add Button
         //When ADD button clicked by user
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
+            #region Set-up
             //Variables from input
             string mainHeader;
             string mainSender;
@@ -101,6 +118,17 @@ namespace ELMFS
             string finalSCC;
             string finalNOI;
             string finalMessage;
+
+            //file path
+            string filepath = @"D:\University\Year 3\SoftwareEngineering\json\messages.json";
+
+            //if JSON file doesn't exist, create new
+            if (!File.Exists(filepath))
+            {
+                File.WriteAllText(filepath, "messages");
+            }
+
+            #endregion
 
 
             #region Header
@@ -303,6 +331,7 @@ namespace ELMFS
             #region Message
             //store message temp
             mainMessage = txtMessage.Text;
+            
 
             //Can't be blank
             if (mainMessage == "")
@@ -316,9 +345,28 @@ namespace ELMFS
                 //if less than 140 char Pass to SMS.cs
                 if (mainMessage.Length < 140)
                 {
+                    //pass to Textspeak
                     Textspeak.TextSpeak(mainMessage);
 
+                    //final store
                     finalMessage = mainMessage;
+
+                    //Write to JSON
+                    //new instance of list
+                    List<SMS> sms = new List<SMS>();
+                    //add inputs to list
+                    sms.Add(new SMS(finalHeader, finalSender, "No Subject", finalMessage));
+                    //convert list to array
+                    string JSON = JsonConvert.SerializeObject(sms.ToArray());
+                    //Add to file
+                    File.AppendAllText(filepath, JSON + Environment.NewLine);
+
+                    //confirm
+                    MessageBox.Show("Message Added to File");
+
+                    //Clear everything method
+                    ClearAll();
+                    
                 }
                 else
                 {
@@ -344,6 +392,22 @@ namespace ELMFS
                     {
                         finalMessage = mainMessage;
                     }
+
+                    //Write to JSON
+                    //new instance of list
+                    List<Email> email = new List<Email>();
+                    //add inputs to list
+                    email.Add(new Email(finalHeader, finalSender, finalSubject, finalMessage));
+                    //convert list to array
+                    string JSON = JsonConvert.SerializeObject(email.ToArray());
+                    //Add to file
+                    File.AppendAllText(filepath, JSON + Environment.NewLine);
+
+                    //confirm
+                    MessageBox.Show("Message Added to File");
+
+                    //Clear everything method
+                    ClearAll();
                 }
                 else
                 {
@@ -358,7 +422,25 @@ namespace ELMFS
                     //If its not blank Pass to Tweet.cs
                     Tweet.TweetMessage(mainMessage);
 
-                   
+                    //final store
+                    finalMessage = mainMessage;
+
+                    //Write to JSON
+                    //new instance of list
+                    List<Tweet> tweet = new List<Tweet>();
+                    //add inputs to list
+                    tweet.Add(new Tweet(finalHeader, finalSender, "No Subject", finalMessage));
+                    //convert list to array
+                    string JSON = JsonConvert.SerializeObject(tweet.ToArray());
+                    //Add to file
+                    File.AppendAllText(filepath, JSON + Environment.NewLine);
+
+                    //confirm
+                    MessageBox.Show("Message Added to File");
+
+                    //Clear everything method
+                    ClearAll();
+
                 }
                 else
                 {
@@ -373,19 +455,12 @@ namespace ELMFS
             }
             #endregion
 
-
-
-
-            #region Write to JSON
-            
-            #endregion
-
         }
 
-
-    }
         #endregion
 
 
-    
+
+    }
+
 }

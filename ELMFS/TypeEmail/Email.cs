@@ -9,10 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Runtime.Serialization;
 
 namespace ELMFS.TypeEmail
 {
-    class Email
+    [DataContract]
+    class Email : Message
     {
         #region Sender
         public static bool EmailSender(string mainSender)
@@ -166,5 +168,13 @@ namespace ELMFS.TypeEmail
             return mainMessage;
         }
         #endregion
+
+        public Email(string finalHeader, string finalSender, string finalSubject, string finalMessage) : base(finalHeader, finalSender, finalSubject, finalMessage)
+        {
+            msgHeader = finalHeader;
+            msgSender = finalSender;
+            msgSubject = finalSubject;
+            msgBody = finalMessage;
+        }
     }
 }

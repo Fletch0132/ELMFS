@@ -8,10 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using System.Runtime.Serialization;
 
 namespace ELMFS.TypeTweet
 {
-    class Tweet
+    [DataContract]
+    class Tweet : Message
     {
         #region Sender
         public static bool TweetSender(string mainSender)
@@ -75,5 +77,13 @@ namespace ELMFS.TypeTweet
             return mainMessage;
         }
         #endregion
+
+        public Tweet (string finalHeader, string finalSender, string finalSubject, string finalMessage) : base(finalHeader, finalSender, finalSubject, finalMessage)
+        {
+            msgHeader = finalHeader;
+            msgSender = finalSender;
+            msgSubject = finalSubject;
+            msgBody = finalMessage;
+        }
     }
 }

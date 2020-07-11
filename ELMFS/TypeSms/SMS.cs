@@ -7,10 +7,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace ELMFS.TypeSms
 {
-    class SMS
+    [DataContract]
+    class SMS:Message
     {
         #region Sender
         public static bool SmsSender(string mainSender)
@@ -39,5 +41,13 @@ namespace ELMFS.TypeSms
             }
         }
         #endregion
+
+        public SMS(string finalHeader, string finalSender, string finalSubject, string finalMessage) : base(finalHeader, finalSender, finalSubject, finalMessage)
+        {
+            msgHeader = finalHeader;
+            msgSender = finalSender;
+            msgSubject = finalSubject;
+            msgBody = finalMessage;
+        }
     }
 }
