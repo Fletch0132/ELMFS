@@ -12,6 +12,7 @@ using ELMFS.TypeTweet;
 using Newtonsoft.Json;
 using System.IO;
 using System.Collections.Generic;
+using ELMFS.Displays;
 
 namespace ELMFS
 {
@@ -43,7 +44,6 @@ namespace ELMFS
             txtMessage.Text = "";
         }
         #endregion
-
 
         #region HeaderType
         //Determines the message type from the header and what should be displayed
@@ -97,7 +97,8 @@ namespace ELMFS
         #endregion
 
 
-        #region Add Button
+        //BUTTONS
+        #region Button Add
         //When ADD button clicked by user
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -457,10 +458,45 @@ namespace ELMFS
 
         }
 
+
+
         #endregion
 
+        #region Button SIR
+        private void btnSIR_Click(object sender, RoutedEventArgs e)
+        {
+            //When button clicked change view
+            Window SIR = new SIR();
+            SIR.Show();
+        }
+        #endregion
 
+        #region Button Trending
+        private void btnTrending_Click(object sender, RoutedEventArgs e)
+        {
+            //When button clicked change view
+            Window Trending = new Trending();
+            Trending.Show();
+        }
+        #endregion
 
+        #region Button Mentions
+        private void btnMentions_Click(object sender, RoutedEventArgs e)
+        {
+            //when button clicked change view
+            Window Mentions = new Mentions();
+            Mentions.Show();
+        }
+        #endregion
+
+        #region Button Quarantine
+        private void btnQuarantine_Click(object sender, RoutedEventArgs e)
+        {
+            //When button clicked change view
+            Window Quarantine = new Quarantine();
+            Quarantine.Show();
+        }
+        #endregion
     }
 
 }
