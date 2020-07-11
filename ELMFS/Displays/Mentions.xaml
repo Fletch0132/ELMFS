@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ELMFS.Displays"
         mc:Ignorable="d"
-        Title="Mentions" Height="450" Width="800">
+        Title="Mentions List" Height="400" Width="350">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+
+        <!--ListBox-->
+        <StackPanel Grid.Column="0">
+            <ListBox Margin="10,10,10,10" Width="230" Height="350" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
+        </StackPanel>
+
+        <!--Button-->
+        <StackPanel Grid.Column="1">
+            <Button x:Name="btnReturn" Width="80" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,5,5">
+                Return
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
