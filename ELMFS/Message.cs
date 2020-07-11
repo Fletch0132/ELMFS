@@ -9,11 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 
 namespace ELMFS
 {
     class Message
     {
+        
+
         #region TextSpeak
         //takes the input message and determines if there is textspeak, if so, converts into meaning
         public static string TextSpeak(string mainMessage)
@@ -34,6 +37,14 @@ namespace ELMFS
 
             System.Windows.MessageBox.Show(message);
             return message;
+        }
+        #endregion
+
+        #region Write to JSON Format File
+        //Write all final variables to JSON file
+        public static void WriteToFile()
+        {
+            
         }
         #endregion
     }

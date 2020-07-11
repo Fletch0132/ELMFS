@@ -9,6 +9,8 @@ using System.Text.RegularExpressions;
 using ELMFS.TypeEmail;
 using ELMFS.TypeSms;
 using ELMFS.TypeTweet;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace ELMFS
 {
@@ -332,8 +334,16 @@ namespace ELMFS
                     //If its not blank Pass to Email.cs
                     Email.EmailMessage(mainMessage);
 
-                    //final store
-                    finalMessage = mainMessage;
+                    //If SIR email, store SCC and NOI as first 2 lines of main
+                    if ((finalSCC != null) && (txtNOI.SelectedIndex != 0))
+                    {
+                        finalMessage = finalSCC + "\n" + finalNOI + "\n" + mainMessage;
+                    }
+                    //if standard email, store main 
+                    else
+                    {
+                        finalMessage = mainMessage;
+                    }
                 }
                 else
                 {
@@ -347,6 +357,8 @@ namespace ELMFS
                 {
                     //If its not blank Pass to Tweet.cs
                     Tweet.TweetMessage(mainMessage);
+
+                   
                 }
                 else
                 {
@@ -358,11 +370,22 @@ namespace ELMFS
             {
                 MessageBox.Show("Error: Something went wrong processing the message.");
                 return;
-            } 
+            }
             #endregion
+
+
+
+
+            #region Write to JSON
+            
+            #endregion
+
         }
+
+
+    }
         #endregion
 
-       
-    }
+
+    
 }
