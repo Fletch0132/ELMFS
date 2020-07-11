@@ -61,6 +61,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Displays\Mentions.xaml.cs">
+      <DependentUpon>Mentions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Displays\Quarantine.xaml.cs">
+      <DependentUpon>Quarantine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Displays\SIR.xaml.cs">
+      <DependentUpon>SIR.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Displays\Trending.xaml.cs">
+      <DependentUpon>Trending.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Message.cs" />
     <Compile Include="Textspeak.cs" />
     <Compile Include="TypeEmail\Email.cs" />
@@ -70,6 +82,22 @@
     <Compile Include="TypeTweet\Tweet.cs" />
     <Compile Include="TypeTweet\TweetHashtags.cs" />
     <Compile Include="TypeTweet\TweetMentions.cs" />
+    <Page Include="Displays\Mentions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Displays\Quarantine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Displays\SIR.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Displays\Trending.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,5 +138,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
