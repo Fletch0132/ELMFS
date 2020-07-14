@@ -105,13 +105,14 @@ namespace ELMFS.TypeEmail
         #region Sports Centre Code
         public static bool EmailSCC(string mainSCC, bool tempNOI)
         {
+            /*
             //Regex declared for SCC: 11-111-11
             Regex rxSCC = new Regex(@"^\d{2}-\d{3}-\d{2}$");
 
             //Validate
             Match matchSCC = rxSCC.Match(mainSCC);
-
-            if ((tempNOI == true) && (matchSCC.Success))
+            */
+            if (tempNOI == true) //&& (matchSCC.Success))
             {
                 return true;
             }

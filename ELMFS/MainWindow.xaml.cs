@@ -124,10 +124,10 @@ namespace ELMFS
             string filepath = @"D:\University\Year 3\SoftwareEngineering\json\messages.json";
 
             //if JSON file doesn't exist, create new
-            if (!File.Exists(filepath))
-            {
-                File.WriteAllText(filepath, "messages");
-            }
+            //if (!File.Exists(filepath))
+            //{
+                //File.WriteAllText(filepath, "messages");
+            //}
 
             #endregion
 

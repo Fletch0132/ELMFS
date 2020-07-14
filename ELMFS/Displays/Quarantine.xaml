@@ -19,8 +19,8 @@
 
         <!--Button-->
         <StackPanel Grid.Column="1">
-            <Button x:Name="btnReturn" Width="80" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,5,5">
-                Return
+            <Button x:Name="btnExit" Width="80" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,5,5">
+                Exit
             </Button>
         </StackPanel>
     </Grid>
