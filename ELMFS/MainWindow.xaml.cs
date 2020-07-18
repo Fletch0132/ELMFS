@@ -283,14 +283,15 @@ namespace ELMFS
                     tempNOI = true;
                 }
 
+                //if blank - display error
+                if (mainSCC == "")
+                {
+                    MessageBox.Show("Error: Email Sports Centre Code cannot be blank.");
+                    return;
+                }
+
                 //pass variable to Email.cs class
-                Email.EmailSCC(mainSubject, tempNOI);
-            }
-            //If blank, display error
-            else if (mainSCC == "")
-            {
-                MessageBox.Show("Error: Email Sports Centre Code cannot be blank.");
-                return;
+                Email.EmailSCC(mainSubject, tempNOI, mainHeader);
             }
 
             //store validated variable from Email.cs
@@ -318,7 +319,7 @@ namespace ELMFS
 
             #region Write to SIR List
             //pass subject, SCC and NOI to write to SIR List
-            Email.EmailSIRList(finalSubject, finalSCC, finalNOI);
+            //Email.EmailSIRList(finalSubject, finalSCC, finalNOI);
             #endregion
 
 
@@ -337,7 +338,7 @@ namespace ELMFS
             else if (mainType == "S")
             {
                 //if less than 140 char Pass to SMS.cs
-                if (mainMessage.Length < 140)
+                if (mainMessage.Length <= 140)
                 {
                     //pass to Textspeak
                     Textspeak.TextSpeak(mainMessage);
@@ -371,7 +372,7 @@ namespace ELMFS
             }
             else if (mainType == "E")
             {
-                if (mainMessage.Length < 1028)
+                if (mainMessage.Length <= 1028)
                 {
                     //If its not blank Pass to Email.cs
                     Email.EmailMessage(mainMessage);
@@ -411,7 +412,7 @@ namespace ELMFS
             }
             else if (mainType == "T")
             {
-                if (mainMessage.Length < 140)
+                if (mainMessage.Length <= 140)
                 {
                     //If its not blank Pass to Tweet.cs
                     Tweet.TweetMessage(mainMessage);

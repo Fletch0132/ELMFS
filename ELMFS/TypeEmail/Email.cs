@@ -93,34 +93,36 @@ namespace ELMFS.TypeEmail
 
 
         #region Sports Centre Code
-        public static void EmailSCC(string mainSCC, bool tempNOI)
+        public static void EmailSCC(string mainSCC, bool tempNOI, string mainHeader)
         {
-            //Regex declared for SCC: 11-111-11
-            Regex rxSCC = new Regex(@"^\d{2}-\d{3}-\d{2}$");
-
-            //Validate
-            Match matchSCC = rxSCC.Match(mainSCC);
-            
-            if ((tempNOI == false) && (!matchSCC.Success))
+            if (mainHeader.Substring(0, 1).ToUpper() == "E")
             {
-                System.Windows.MessageBox.Show("Sports Centre Code does not match format: '66-666-99'");
-                return;
+                //Regex declared for SCC: 11-111-11
+                Regex rxSCC = new Regex(@"^\d{2}-\d{3}-\d{2}$");
+
+                //Validate
+                Match matchSCC = rxSCC.Match(mainSCC);
+
+                if ((tempNOI == false) && (!matchSCC.Success))
+                {
+                    System.Windows.MessageBox.Show("Sports Centre Code does not match format: '66-666-99'");
+                    return;
+                }
             }
-            
         }
         #endregion
 
 
         #region SIR List
         //Add subject, Sports Centre Code, and Nature of Incident to list (Only supposed to be SCC and NOI but feel subject 
-        //will helpwith identification if need be
+        //will help with identification if need be
         public static void EmailSIRList(string finalSubject, string finalSCC, string finalNOI)
         {
             //initialize list
             EmailSIR emailSIR = new EmailSIR();
 
             //add subject, SCC and NOI to list 
-            emailSIR.Add(finalSubject, finalSCC, finalNOI);
+            //emailSIR.Add(finalSubject, finalSCC, finalNOI);
         }
 
         #endregion
