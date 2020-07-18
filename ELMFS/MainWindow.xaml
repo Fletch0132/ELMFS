@@ -47,26 +47,16 @@
         <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center">
             <TextBox x:Name="txtSubject" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
         </StackPanel>
-        
-        <!--Sport Centre Code Text-->
-        <StackPanel Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Label Margin="0,0,10,5">
-                <TextBlock TextWrapping="WrapWithOverflow">Sport Centre Code:</TextBlock>
-            </Label>
-        </StackPanel>
-        <!--Sport Centre Code TextBox-->
-        <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="txtSCC" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
-        </StackPanel>
+
         
         <!--Nature of Incident Text-->
-        <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center">
+        <StackPanel Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center">
             <Label Margin="0,0,10,5">
                 <TextBlock TextWrapping="WrapWithOverflow">Nature of Incident:</TextBlock>
             </Label>
         </StackPanel>
         <!--Nature of Incident TextBox-->
-        <StackPanel Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center">
             <ComboBox x:Name="txtNOI" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0">
                 <ComboBoxItem>No Significant Incident</ComboBoxItem>
                 <ComboBoxItem>Theft of Properties</ComboBoxItem>
@@ -82,7 +72,19 @@
                 <ComboBoxItem>Personal Info Leak</ComboBoxItem>
             </ComboBox>
         </StackPanel>
+
+        <!--Sport Centre Code Text-->
+        <StackPanel Grid.Column="0" Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label Margin="0,0,10,5">
+                <TextBlock TextWrapping="WrapWithOverflow">Sport Centre Code:</TextBlock>
+            </Label>
+        </StackPanel>
+        <!--Sport Centre Code TextBox-->
+        <StackPanel Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <TextBox x:Name="txtSCC" Width="350" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+        </StackPanel>
         
+
         <!--Message Text-->
         <StackPanel Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Top">
             <Label Margin="0,10,10,5">Message:</Label>

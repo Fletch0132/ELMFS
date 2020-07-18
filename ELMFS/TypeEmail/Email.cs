@@ -46,18 +46,6 @@ namespace ELMFS.TypeEmail
         {
             if (mainHeader.Substring(0, 1).ToUpper() == "E")
             {
-                //Temp Var
-                DateTime date;
-                //Remove whitespace
-                string emailDate = mainSubject.Replace(" ", "");
-                //Focus on SIR
-                string emailSIR = mainSubject.Substring(0, 3).ToUpper();
-                //Focus on date
-                emailDate = emailDate.Substring(3, 8);
-
-                //Validate date format
-                bool dateValid = DateTime.TryParseExact(emailDate, "dd/MM/yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
-
                 //determine type of subject - normal or SIR
                 //false = standard
                 if (tempNOI == false)
@@ -71,19 +59,39 @@ namespace ELMFS.TypeEmail
                 }
                 else if (tempNOI == true)
                 {
-                    if (mainSubject.Length > 20)
+                    try
                     {
-                        System.Windows.MessageBox.Show("Error: Subject for email cannot be greater than 20 characters.");
-                        return;
+                        //Temp Var
+                        DateTime date;
+                        //Remove whitespace
+                        string emailDate = mainSubject.Replace(" ", "");
+                        //Focus on SIR
+                        string emailSIR = mainSubject.Substring(0, 3).ToUpper();
+                        //Focus on date
+                        emailDate = emailDate.Substring(3, 8);
+
+                        //Validate date format
+                        bool dateValid = DateTime.TryParseExact(emailDate, "dd/MM/yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
+
+
+                        if (mainSubject.Length > 20)
+                        {
+                            System.Windows.MessageBox.Show("Error: Subject for email cannot be greater than 20 characters.");
+                            return;
+                        }
+                        else if (emailSIR != "SIR")
+                        {
+                            System.Windows.MessageBox.Show("Error: Subject for Significant Incident Report emails must start with 'SIR'.");
+                            return;
+                        }
+                        else if (dateValid == false)
+                        {
+                            System.Windows.MessageBox.Show("Error: Subject for Significant Incident Report emails must contain a valid date after 'SIR' in the format 'dd/mm/yy'");
+                            return;
+                        }
                     }
-                    else if (emailSIR != "SIR")
+                    catch(ArgumentOutOfRangeException)
                     {
-                        System.Windows.MessageBox.Show("Error: Subject for Significant Incident Report emails must start with 'SIR'.");
-                        return;
-                    }
-                    else if (dateValid == false)
-                    {
-                        System.Windows.MessageBox.Show("Error: Subject for Significant Incident Report emails must contain a valid date after 'SIR' in the format 'dd/mm/yy'");
                         return;
                     }
                 }
@@ -97,15 +105,28 @@ namespace ELMFS.TypeEmail
         {
             if (mainHeader.Substring(0, 1).ToUpper() == "E")
             {
-                //Regex declared for SCC: 11-111-11
-                Regex rxSCC = new Regex(@"^\d{2}-\d{3}-\d{2}$");
-
-                //Validate
-                Match matchSCC = rxSCC.Match(mainSCC);
-
-                if ((tempNOI == false) && (!matchSCC.Success))
+                if (tempNOI == true)
                 {
-                    System.Windows.MessageBox.Show("Sports Centre Code does not match format: '66-666-99'");
+                    //Regex declared for SCC: 11-111-11
+                    //Regex rxSCC = new Regex(@"^(\s){2}-(\s){3}-(\s){2}$");
+
+                    //Validate
+                    //Match matchSCC = rxSCC.Match(mainSCC);
+
+                    int count = 0;
+                    foreach (char c in mainSCC)
+                    {
+                        count++;
+                        if (c < '0' || c > '9')
+                        {
+                            System.Windows.MessageBox.Show("Error: Email SCC must be numeric.");
+                            return;
+                        }
+                    }
+                }
+                else if (mainSCC.Length > 7)
+                {
+                    System.Windows.MessageBox.Show("Sports Centre Code does not match format: '6666699'. System will break the code with '-' when processing");
                     return;
                 }
             }

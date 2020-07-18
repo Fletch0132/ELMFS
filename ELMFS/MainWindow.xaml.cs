@@ -283,15 +283,19 @@ namespace ELMFS
                     tempNOI = true;
                 }
 
-                //if blank - display error
-                if (mainSCC == "")
+                //SIR email, can't be blank, pass to EmailSCC()
+                if (tempNOI == true)
                 {
-                    MessageBox.Show("Error: Email Sports Centre Code cannot be blank.");
-                    return;
-                }
+                    //if blank - display error
+                    if (mainSCC == "")
+                    {
+                        MessageBox.Show("Error: Email Sports Centre Code cannot be blank.");
+                        return;
+                    }
 
-                //pass variable to Email.cs class
-                Email.EmailSCC(mainSubject, tempNOI, mainHeader);
+                    //pass variable to Email.cs class
+                    Email.EmailSCC(mainSubject, tempNOI, mainHeader);
+                }
             }
 
             //store validated variable from Email.cs
