@@ -74,7 +74,6 @@
     <Compile Include="Displays\Trending.xaml.cs">
       <DependentUpon>Trending.xaml</DependentUpon>
     </Compile>
-    <Compile Include="lstSIR\DataSource.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="Textspeak.cs" />
     <Compile Include="TypeEmail\Email.cs" />

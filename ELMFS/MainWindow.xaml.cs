@@ -243,24 +243,23 @@ namespace ELMFS
                 }
 
                 //pass variable to Email.cs class
-                Email.EmailSubject(mainSubject, tempNOI);
-            }
-            //If blank, display error
-            else if (mainSubject == "")
-            {
-                MessageBox.Show("Error: Email Subject cannot be blank.");
-                return;
+                Email.EmailSubject(mainSubject, tempNOI, mainHeader);
             }
 
+            //store main as final
+            finalSubject = mainSubject;
+
+
+
             //store validated variable from Email.cs
-            if (Email.EmailSubject(mainSubject, tempNOI))
-            {
-                finalSubject = mainSubject;
-            }
-            else
-            {
-                return;
-            }
+            //if (Email.EmailSubject(mainSubject, tempNOI, mainHeader))
+            //{
+            //finalSubject = mainSubject;
+            //}
+            //else
+            //{
+            //return;
+            //}
 
             #endregion
 
@@ -295,14 +294,8 @@ namespace ELMFS
             }
 
             //store validated variable from Email.cs
-            if (Email.EmailSCC(mainSubject, tempNOI))
-            {
-                finalSCC = mainSCC; 
-            }
-            else
-            {
-                return;
-            }
+            finalSCC = mainSCC;
+            
             #endregion
 
 

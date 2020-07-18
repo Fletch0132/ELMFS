@@ -89,7 +89,7 @@
         </StackPanel>
         <!--Message TextBox-->
         <StackPanel Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <TextBox x:Name="txtMessage" Width="350" Height="130" HorizontalAlignment="Left" Margin="10,0,0,0"></TextBox>
+            <TextBox x:Name="txtMessage" Width="350" Height="130" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap"></TextBox>
         </StackPanel>
         
         

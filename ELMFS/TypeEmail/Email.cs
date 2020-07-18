@@ -42,85 +42,71 @@ namespace ELMFS.TypeEmail
 
 
         #region Subject
-        public static bool EmailSubject(string mainSubject, bool tempNOI)
+        public static void EmailSubject(string mainSubject, bool tempNOI, string mainHeader)
         {
-            //Temp Var
-            DateTime date;
-            //Remove whitespace
-            string emailDate = mainSubject.Replace(" ", "");
-            //Focus on SIR
-            string emailSIR = mainSubject.Substring(0, 3).ToUpper();
-            //Focus on date
-            emailDate = emailDate.Substring(3,8);
+            if (mainHeader.Substring(0, 1).ToUpper() == "E")
+            {
+                //Temp Var
+                DateTime date;
+                //Remove whitespace
+                string emailDate = mainSubject.Replace(" ", "");
+                //Focus on SIR
+                string emailSIR = mainSubject.Substring(0, 3).ToUpper();
+                //Focus on date
+                emailDate = emailDate.Substring(3, 8);
 
-            //Validate date format
-            bool dateValid = DateTime.TryParseExact(emailDate, "dd/MM/yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
+                //Validate date format
+                bool dateValid = DateTime.TryParseExact(emailDate, "dd/MM/yy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date);
 
-            //determine type of subject - normal or SIR
-            //false = standard
-            if (tempNOI == false)
-            {
-                //Must not exceed 20 char
-                if(mainSubject.Length > 20)
+                //determine type of subject - normal or SIR
+                //false = standard
+                if (tempNOI == false)
                 {
-                    System.Windows.MessageBox.Show("Error: Subject for email cannot be greater than 20 characters.");
-                    return false;
+                    //Must not exceed 20 char
+                    if (mainSubject.Length > 20)
+                    {
+                        System.Windows.MessageBox.Show("Error: Subject for email cannot be greater than 20 characters.");
+                        return;
+                    }
                 }
-                else
+                else if (tempNOI == true)
                 {
-                    return true;
+                    if (mainSubject.Length > 20)
+                    {
+                        System.Windows.MessageBox.Show("Error: Subject for email cannot be greater than 20 characters.");
+                        return;
+                    }
+                    else if (emailSIR != "SIR")
+                    {
+                        System.Windows.MessageBox.Show("Error: Subject for Significant Incident Report emails must start with 'SIR'.");
+                        return;
+                    }
+                    else if (dateValid == false)
+                    {
+                        System.Windows.MessageBox.Show("Error: Subject for Significant Incident Report emails must contain a valid date after 'SIR' in the format 'dd/mm/yy'");
+                        return;
+                    }
                 }
-            }
-            else if(tempNOI == true)
-            {
-                if(mainSubject.Length > 20)
-                {
-                    System.Windows.MessageBox.Show("Error: Subject for email cannot be greater than 20 characters.");
-                    return false;
-                }
-                else if (emailSIR != "SIR")
-                {
-                    System.Windows.MessageBox.Show("Error: Subject for Significant Incident Report emails must start with 'SIR'.");
-                    return false;
-                }
-                else if (dateValid == false)
-                {
-                    System.Windows.MessageBox.Show("Error: Subject for Significant Incident Report emails must contain a valid date after 'SIR' in the format 'dd/mm/yy'");
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
-            }
-            else
-            {
-                System.Windows.MessageBox.Show("Error: Something went wrong with email Subject. Please try again.");
-                return false;
             }
         }
         #endregion
 
 
         #region Sports Centre Code
-        public static bool EmailSCC(string mainSCC, bool tempNOI)
+        public static void EmailSCC(string mainSCC, bool tempNOI)
         {
-            /*
             //Regex declared for SCC: 11-111-11
             Regex rxSCC = new Regex(@"^\d{2}-\d{3}-\d{2}$");
 
             //Validate
             Match matchSCC = rxSCC.Match(mainSCC);
-            */
-            if (tempNOI == true) //&& (matchSCC.Success))
+            
+            if ((tempNOI == false) && (!matchSCC.Success))
             {
-                return true;
+                System.Windows.MessageBox.Show("Sports Centre Code does not match format: '66-666-99'");
+                return;
             }
-            else
-            {
-                System.Windows.MessageBox.Show("Error: Sports Centre Code does not follow correct format. Must be '66-666-99'");
-                return false;
-            }
+            
         }
         #endregion
 
