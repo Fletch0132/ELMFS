@@ -265,6 +265,8 @@ namespace ELMFS
 
 
             #region Sports Centre Code
+            //Wanted most of this code in the Email.cs but for some reason it continued to miss the "TryParse" line
+            
             //Store SCC
             mainSCC = txtSCC.Text;
 
@@ -292,7 +294,40 @@ namespace ELMFS
                         MessageBox.Show("Error: Email Sports Centre Code cannot be blank.");
                         return;
                     }
+                    //if SIR email
+                    else if (tempNOI == true)
+                    {
+                        //if input equals 7 char
+                        if (mainSCC.Length == 7)
+                        {
+                            //variables
+                            int mSCC;
+                            //take input and test if numeric
+                            bool num = int.TryParse(mainSCC, out mSCC);
 
+                            //if numeric store - if not numeric display error
+                            if (num)
+                            {
+                                mainSCC = mSCC.ToString();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Error: Sport's Centre Code must be numeric.");
+                                return;
+                            }
+                        }
+                        //if less or more than 7 display error
+                        else
+                        {
+                            MessageBox.Show("Error: SCC must by 7 integers long.");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: Sports Centre Code does not match format: '6666699'. System will break the code with '-' when processing");
+                        return;
+                    }
                     //pass variable to Email.cs class
                     Email.EmailSCC(mainSubject, tempNOI, mainHeader);
                 }

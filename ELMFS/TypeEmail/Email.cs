@@ -105,30 +105,7 @@ namespace ELMFS.TypeEmail
         {
             if (mainHeader.Substring(0, 1).ToUpper() == "E")
             {
-                if (tempNOI == true)
-                {
-                    //Regex declared for SCC: 11-111-11
-                    //Regex rxSCC = new Regex(@"^(\s){2}-(\s){3}-(\s){2}$");
-
-                    //Validate
-                    //Match matchSCC = rxSCC.Match(mainSCC);
-
-                    int count = 0;
-                    foreach (char c in mainSCC)
-                    {
-                        count++;
-                        if (c < '0' || c > '9')
-                        {
-                            System.Windows.MessageBox.Show("Error: Email SCC must be numeric.");
-                            return;
-                        }
-                    }
-                }
-                else if (mainSCC.Length > 7)
-                {
-                    System.Windows.MessageBox.Show("Sports Centre Code does not match format: '6666699'. System will break the code with '-' when processing");
-                    return;
-                }
+                
             }
         }
         #endregion
