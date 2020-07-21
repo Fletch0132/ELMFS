@@ -14,7 +14,6 @@ namespace ELMFS
         //takes the input message and determines if there is textspeak, if so, converts into meaning
         public static string TextSpeak(string mainMessage)
         {
-            string message = mainMessage;
 
             //open textspeak file and store
             Dictionary<string, string> textwords = File.ReadLines(@"D:\University\Year 3\SoftwareEngineering\textwords.csv").Select(x => x.Split(',')).ToDictionary(x => x[0], x => x[1]);
@@ -25,11 +24,11 @@ namespace ELMFS
                 string format = string.Format(@"\b{0}\b", Regex.Escape(abb.Key.ToLower()));
                 string expandAbb = abb.Key + " <" + abb.Value + "> ";
 
-                message = Regex.Replace(message, format, expandAbb, RegexOptions.IgnoreCase);
+                mainMessage = Regex.Replace(mainMessage, format, expandAbb, RegexOptions.IgnoreCase);
             }
 
-            System.Windows.MessageBox.Show(message);
-            return message;
+            System.Windows.MessageBox.Show(mainMessage);
+            return mainMessage;
         }
         #endregion
     }

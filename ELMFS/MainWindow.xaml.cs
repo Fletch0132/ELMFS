@@ -329,8 +329,6 @@ namespace ELMFS
                         MessageBox.Show("Error: Sports Centre Code does not match format: '6666699'. System will break the code with '-' when processing");
                         return;
                     }
-                    //pass variable to Email.cs class
-                    Email.EmailSCC(mainSubject, tempNOI, mainHeader);
                 }
             }
 

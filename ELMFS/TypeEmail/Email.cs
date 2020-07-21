@@ -100,17 +100,6 @@ namespace ELMFS.TypeEmail
         #endregion
 
 
-        #region Sports Centre Code
-        public static void EmailSCC(string mainSCC, bool tempNOI, string mainHeader)
-        {
-            if (mainHeader.Substring(0, 1).ToUpper() == "E")
-            {
-                
-            }
-        }
-        #endregion
-
-
         #region SIR List
         //Add subject, Sports Centre Code, and Nature of Incident to list (Only supposed to be SCC and NOI but feel subject 
         //will help with identification if need be
