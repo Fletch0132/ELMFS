@@ -19,20 +19,28 @@ namespace ELMFS.TypeTweet
         public static bool TweetSender(string mainSender)
         {
             //Regex for ID
-            Regex rxTweetSender = new Regex(@"\s(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9-_]+)");
-
+            //Regex rxTweetSender = new Regex(@"\s(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9-_]+)");
             //Match
-            Match matchSender = rxTweetSender.Match(mainSender);
+            //Match matchSender = rxTweetSender.Match(mainSender);
+
+            //split main sender
+            string senderOne = mainSender.Substring(0, 1);
+            string senderTwo = mainSender.Substring(1);
 
             //handle the input
-            if((matchSender.Success) && (mainSender.Length <= 15))
+            if(senderOne != "@")
             {
-                return true;
+                System.Windows.MessageBox.Show("Error: Twitter ID must start with '@'");
+                return false;
+            }
+            else if (senderTwo.Length > 15)
+            {
+                System.Windows.MessageBox.Show("Error: Length of sender must be 16 characters including '@' at the start.");
+                return false;
             }
             else
             {
-                System.Windows.MessageBox.Show("Error: Twitter ID does not match the format. Must start with '@' and be 15 characters or less.");
-                return false;
+                return true;
             }
         }
         #endregion
