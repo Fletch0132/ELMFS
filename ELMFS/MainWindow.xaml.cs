@@ -32,6 +32,7 @@ namespace ELMFS
             txtNOI.IsEnabled = false;
         }
 
+        
         #region Clear All
         //Clear everything when called
         public void ClearAll()
@@ -121,7 +122,7 @@ namespace ELMFS
             string finalMessage;
 
             //file path
-            string filepath = @"D:\University\Year 3\SoftwareEngineering\json\messages.json";
+            string filepath = @"D:\University\Year 3\SoftwareEngineering\messages.txt";
 
             //if JSON file doesn't exist, create new
             //if (!File.Exists(filepath))
