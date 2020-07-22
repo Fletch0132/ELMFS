@@ -23,5 +23,12 @@ namespace ELMFS.Displays
         {
             InitializeComponent();
         }
+
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            //Exit
+            this.Close();
+        }
     }
 }

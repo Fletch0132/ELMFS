@@ -19,7 +19,7 @@
 
         <!--Button-->
         <StackPanel Grid.Column="1">
-            <Button x:Name="btnExit" Width="80" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,5,5">
+            <Button x:Name="btnExit" Width="80" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,5,5" Click="btnExit_Click">
                 Exit
             </Button>
         </StackPanel>

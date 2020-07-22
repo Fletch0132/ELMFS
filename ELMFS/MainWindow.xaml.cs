@@ -529,6 +529,15 @@ namespace ELMFS
             Quarantine.Show();
         }
         #endregion
+
+        #region Button Messages
+        private void btnSavedMessage_Click(object sender, RoutedEventArgs e)
+        {
+            //When button clicked change view
+            Window Messages = new Messages();
+            Messages.Show();
+        }
+        #endregion
     }
 
 }
