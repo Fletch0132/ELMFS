@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ELMFS.TypeEmail;
 
 namespace ELMFS.Displays
 {
@@ -21,6 +22,8 @@ namespace ELMFS.Displays
     {
         public Quarantine()
         {
+            EmailQuarantine emailQuarantine = new EmailQuarantine();
+            lstQuarantine.Items.Add(emailQuarantine);
             InitializeComponent();
         }
 

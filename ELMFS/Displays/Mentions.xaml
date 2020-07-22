@@ -14,7 +14,7 @@
 
         <!--ListBox-->
         <StackPanel Grid.Column="0">
-            <ListBox Margin="10,10,10,10" Width="230" Height="350" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
+            <ListBox x:Name="lstMentions" Margin="10,10,10,10" Width="230" Height="350" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible"></ListBox>
         </StackPanel>
 
         <!--Button-->

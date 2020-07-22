@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ELMFS.TypeTweet;
 
 namespace ELMFS.Displays
 {
@@ -21,6 +22,8 @@ namespace ELMFS.Displays
     {
         public Trending()
         {
+            TweetHashtags tweetHashtags = new TweetHashtags();
+            lstTrending.Items.Add(tweetHashtags);
             InitializeComponent();
         }
 

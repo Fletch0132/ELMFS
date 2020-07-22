@@ -14,14 +14,12 @@ namespace ELMFS.Displays
     {
         public Messages()
         {
+            MainWindow compMess = new MainWindow();
+            lstMessages.Items.Add(compMess);
             InitializeComponent();
-            savedMessages();
         }
 
-        public void savedMessages()
-        {
-           
-        }
+        
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {

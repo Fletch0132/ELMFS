@@ -32,7 +32,15 @@ namespace ELMFS
             txtNOI.IsEnabled = false;
         }
 
-        
+        //completed message list for diaplying message in list box (couldn't get it to read from file)
+        /*private List<string> compMess = new List<string>();
+
+        public List<String> GetcompmessList()
+        {
+            return compMess;
+        }
+        */
+
         #region Clear All
         //Clear everything when called
         public void ClearAll()
