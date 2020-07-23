@@ -20,15 +20,12 @@ namespace ELMFS.Displays
     /// Interaction logic for SIR.xaml
     /// </summary>
     public partial class SIR : Window
-    {
-        public object DataSource { get; set; }
-
-        public SIR()
+    {public SIR(List<string> eSIR)
         {
-            EmailSIR emailSIR = new EmailSIR();
-            lstSIR.Items.Add(emailSIR);
             InitializeComponent();
 
+            foreach (string sir in eSIR)
+                lstSIR.Items.Add(sir);
         }
 
         //Exit

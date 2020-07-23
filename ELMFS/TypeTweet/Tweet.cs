@@ -50,14 +50,14 @@ namespace ELMFS.TypeTweet
 
         #region Message
         //Finds and converts textspeak, finds and stores hashtags and mentions
-        public static string TweetMessage(string mainMessage)
+        public static string TweetMessage(string mainMessage, ref List<string> hTags, ref List<string> tMention)
         {
             //check for textspeak
-            Textspeak.TextSpeak(mainMessage);
+            mainMessage = Textspeak.TextSpeak(mainMessage);
 
             //Initialize Lists
-            TweetHashtags tweetHashtags = new TweetHashtags();
-            TweetMentions tweetMentions = new TweetMentions();
+            //TweetHashtags tweetHashtags = new TweetHashtags();
+            //TweetMentions tweetMentions = new TweetMentions();
 
             //Match Pattern
             const string hashtag = @"#([A-Za-z0-9\-_&;]+)";
@@ -69,7 +69,7 @@ namespace ELMFS.TypeTweet
                 foreach (Match match in Regex.Matches(mainMessage, hashtag))
                 {
                     var hashtagMatch = match.Groups[1].Value;
-                    tweetHashtags.Add(hashtagMatch);
+                    hTags.Add(hashtagMatch);
                 }
             }
 
@@ -79,7 +79,7 @@ namespace ELMFS.TypeTweet
                 foreach(Match match in Regex.Matches(mainMessage, mention))
                 {
                     var mentionMatch = match.Groups[1].Value;
-                    TweetMentions.Add(mentionMatch);
+                    tMention.Add(mentionMatch);
                 }
             }
 

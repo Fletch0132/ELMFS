@@ -104,13 +104,12 @@ namespace ELMFS.TypeEmail
         #region SIR List
         //Add subject, Sports Centre Code, and Nature of Incident to list (Only supposed to be SCC and NOI but feel subject 
         //will help with identification if need be
-        public static void EmailSIRList(string finalSubject, string finalSCC, string finalNOI)
+        public static void EmailSIRList(string finalSubject, string finalSCC, string finalNOI, ref List<string> eSIR)
         {
-            //initialize list
-            EmailSIR emailSIR = new EmailSIR();
-
             //add subject, SCC and NOI to list 
-            //emailSIR.Add(finalSubject, finalSCC, finalNOI);
+            eSIR.Add(finalSubject);
+            eSIR.Add(finalSCC);
+            eSIR.Add(finalNOI);
         }
 
         #endregion
@@ -118,13 +117,13 @@ namespace ELMFS.TypeEmail
 
         #region Message
         //find hyperlinks, quarantine them
-        public static string EmailMessage(string mainMessage)
+        public static string EmailMessage(string mainMessage, ref List<string> eQuarantine)
         {
             //Create URL Regex
             const string hyperlink = (@"^(http|http(s)?://)?([\w-]+\.)+[\w-]+[.com|.in|.org]+(\[\?%&=]*)?");
 
             //Quarantine List
-            EmailQuarantine emailQuarantine = new EmailQuarantine();
+            //EmailQuarantine emailQuarantine = new EmailQuarantine();
 
             //Search through message for URL(s) and replace
             foreach(Match match in Regex.Matches(mainMessage, hyperlink))
@@ -134,7 +133,7 @@ namespace ELMFS.TypeEmail
                 //if the url isn#t in list then add it
                 if (!EmailQuarantine.Contains(url))
                 {
-                    emailQuarantine.Add(url);
+                    eQuarantine.Add(url);
                 }
 
                 //replace url with Quarantine

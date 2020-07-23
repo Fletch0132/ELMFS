@@ -21,6 +21,12 @@ namespace ELMFS
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Lists for display
+        List<string> hashTags = new List<string>();
+        List<string> mMentions = new List<string>();
+        List<string> mQuarantine = new List<string>();
+        List<string> mSIR = new List<string>();
+
         private bool tempNOI;
 
         public MainWindow()
@@ -365,7 +371,7 @@ namespace ELMFS
 
             #region Write to SIR List
             //pass subject, SCC and NOI to write to SIR List
-            //Email.EmailSIRList(finalSubject, finalSCC, finalNOI);
+            Email.EmailSIRList(finalSubject, finalSCC, finalNOI, ref mSIR);
             #endregion
 
 
@@ -387,7 +393,7 @@ namespace ELMFS
                 if (mainMessage.Length <= 140)
                 {
                     //pass to Textspeak
-                    Textspeak.TextSpeak(mainMessage);
+                    mainMessage = Textspeak.TextSpeak(mainMessage);
 
                     //final store
                     finalMessage = mainMessage;
@@ -421,7 +427,7 @@ namespace ELMFS
                 if (mainMessage.Length <= 1028)
                 {
                     //If its not blank Pass to Email.cs
-                    Email.EmailMessage(mainMessage);
+                    mainMessage = Email.EmailMessage(mainMessage, ref mQuarantine);
 
                     //If SIR email, store SCC and NOI as first 2 lines of main
                     if ((finalSCC != null) && (txtNOI.SelectedIndex != 0))
@@ -461,7 +467,7 @@ namespace ELMFS
                 if (mainMessage.Length <= 140)
                 {
                     //If its not blank Pass to Tweet.cs
-                    Tweet.TweetMessage(mainMessage);
+                    mainMessage = Tweet.TweetMessage(mainMessage, ref hashTags, ref mMentions);
 
                     //final store
                     finalMessage = mainMessage;
@@ -506,7 +512,7 @@ namespace ELMFS
         private void btnSIR_Click(object sender, RoutedEventArgs e)
         {
             //When button clicked change view
-            Window SIR = new SIR();
+            Window SIR = new SIR(mSIR);
             SIR.Show();
         }
         #endregion
@@ -515,7 +521,7 @@ namespace ELMFS
         private void btnTrending_Click(object sender, RoutedEventArgs e)
         {
             //When button clicked change view
-            Window Trending = new Trending();
+            Window Trending = new Trending(hashTags);
             Trending.Show();
         }
         #endregion
@@ -524,7 +530,7 @@ namespace ELMFS
         private void btnMentions_Click(object sender, RoutedEventArgs e)
         {
             //when button clicked change view
-            Window Mentions = new Mentions();
+            Window Mentions = new Mentions(mMentions);
             Mentions.Show();
         }
         #endregion
@@ -533,7 +539,7 @@ namespace ELMFS
         private void btnQuarantine_Click(object sender, RoutedEventArgs e)
         {
             //When button clicked change view
-            Window Quarantine = new Quarantine();
+            Window Quarantine = new Quarantine(mQuarantine);
             Quarantine.Show();
         }
         #endregion

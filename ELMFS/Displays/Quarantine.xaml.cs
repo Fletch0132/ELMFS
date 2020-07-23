@@ -20,11 +20,12 @@ namespace ELMFS.Displays
     /// </summary>
     public partial class Quarantine : Window
     {
-        public Quarantine()
+        public Quarantine(List<string> eQuarantine)
         {
-            EmailQuarantine emailQuarantine = new EmailQuarantine();
-            lstQuarantine.Items.Add(emailQuarantine);
             InitializeComponent();
+
+            foreach (string qr in eQuarantine)
+                lstQuarantine.Items.Add(eQuarantine);
         }
 
 

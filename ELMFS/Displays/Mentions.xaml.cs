@@ -20,11 +20,12 @@ namespace ELMFS.Displays
     /// </summary>
     public partial class Mentions : Window
     {
-        public Mentions()
+        public Mentions(List<string> tMentions)
         {
-            TweetMentions tweetMentions = new TweetMentions();
-            lstMentions.Items.Add(tweetMentions);
             InitializeComponent();
+
+            foreach (string men in tMentions)
+                lstMentions.Items.Add(men);
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
