@@ -16,9 +16,6 @@
         <!--ListBox-->
         <StackPanel Grid.Column="0">
             <ListBox x:Name="lstSIR" Margin="10,10,10,10" Width="230" Height="350" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Visible">
-                <ListBox.DataContext>
-                    <TypeEmail:EmailSIR/>
-                </ListBox.DataContext>
             </ListBox>
         </StackPanel>
 

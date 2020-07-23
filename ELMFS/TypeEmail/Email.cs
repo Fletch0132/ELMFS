@@ -107,9 +107,9 @@ namespace ELMFS.TypeEmail
         public static void EmailSIRList(string finalSubject, string finalSCC, string finalNOI, ref List<string> eSIR)
         {
             //add subject, SCC and NOI to list 
-            eSIR.Add(finalSubject);
-            eSIR.Add(finalSCC);
-            eSIR.Add(finalNOI);
+            eSIR.Add("Subject: " + finalSubject);
+            eSIR.Add("Sports Centre Code: " + finalSCC);
+            eSIR.Add("Nature of Incident: " + finalNOI);
         }
 
         #endregion
@@ -131,7 +131,7 @@ namespace ELMFS.TypeEmail
                 var url = match.Groups[1].Value;
 
                 //if the url isn#t in list then add it
-                if (!EmailQuarantine.Contains(url))
+                if (!eQuarantine.Contains(url))
                 {
                     eQuarantine.Add(url);
                 }

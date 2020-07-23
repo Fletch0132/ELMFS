@@ -36,6 +36,10 @@ namespace ELMFS
             txtSubject.IsEnabled = false;
             txtSCC.IsEnabled = false;
             txtNOI.IsEnabled = false;
+
+            //Fill combobox
+            //txtNOI.Items.Add("No Significant Incident");
+            //txtNOI.Items.Add("Theft of Properties");
         }
 
         //completed message list for diaplying message in list box (couldn't get it to read from file)
@@ -55,7 +59,7 @@ namespace ELMFS
             txtSender.Text = "";
             txtSubject.Text = "";
             txtSCC.Text = "";
-            txtNOI.Items.Clear();
+            txtNOI.SelectedIndex = -1;
             txtMessage.Text = "";
         }
         #endregion
@@ -371,7 +375,10 @@ namespace ELMFS
 
             #region Write to SIR List
             //pass subject, SCC and NOI to write to SIR List
-            Email.EmailSIRList(finalSubject, finalSCC, finalNOI, ref mSIR);
+            if (txtNOI.SelectedIndex == -1)
+            {
+                Email.EmailSIRList(finalSubject, finalSCC, finalNOI, ref mSIR);
+            }
             #endregion
 
 

@@ -85,8 +85,6 @@
     <Compile Include="Message.cs" />
     <Compile Include="Textspeak.cs" />
     <Compile Include="TypeEmail\Email.cs" />
-    <Compile Include="TypeEmail\EmailQuarantine.cs" />
-    <Compile Include="TypeEmail\EmailSIR.cs" />
     <Compile Include="TypeSms\SMS.cs" />
     <Compile Include="TypeTweet\Tweet.cs" />
     <Compile Include="TypeTweet\TweetHashtags.cs" />
@@ -142,6 +140,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

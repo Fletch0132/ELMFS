@@ -69,7 +69,7 @@ namespace ELMFS.TypeTweet
                 foreach (Match match in Regex.Matches(mainMessage, hashtag))
                 {
                     var hashtagMatch = match.Groups[1].Value;
-                    hTags.Add(hashtagMatch);
+                    hTags.Add("#" + hashtagMatch);
                 }
             }
 
@@ -79,7 +79,7 @@ namespace ELMFS.TypeTweet
                 foreach(Match match in Regex.Matches(mainMessage, mention))
                 {
                     var mentionMatch = match.Groups[1].Value;
-                    tMention.Add(mentionMatch);
+                    tMention.Add("@" + mentionMatch);
                 }
             }
 
