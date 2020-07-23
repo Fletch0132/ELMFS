@@ -17,7 +17,7 @@ namespace ELMFS.TypeEmail
     class Email : Message
     {
         #region Sender
-        public static bool EmailSender(string mainSender)
+        public static string EmailSender(string mainSender)
         {
             //validate email using Regex
             //Regular Expression Defined - Email Address layout
@@ -29,13 +29,14 @@ namespace ELMFS.TypeEmail
             //Handle email - correct or incorrect
             if (matchEmail.Success)
             {
-                return true;
+                return mainSender;
             }
             //Handle duplicates -- else if ((matchEmail.Success) && ()
             else
             {
                 System.Windows.MessageBox.Show("Error: Email address is invalid.");
-                return false;
+                mainSender = null;
+                return mainSender;
             }
         }
         #endregion

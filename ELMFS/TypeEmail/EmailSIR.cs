@@ -13,7 +13,6 @@ namespace ELMFS.TypeEmail
     class EmailSIR
     {
         //SIR List 
-        /*
         private List<string> SIR = new List<string>();
 
         public List<string> GetSIRList()
@@ -23,7 +22,9 @@ namespace ELMFS.TypeEmail
 
         internal void Add(string finalSubject, string finalSCC, string finalNOI)
         {
-            throw new NotImplementedException();
-        }*/
+            SIR.Add(finalSubject);
+            SIR.Add(finalSCC);
+            SIR.Add(finalNOI);
+        }
     }
 }

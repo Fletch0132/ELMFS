@@ -22,7 +22,7 @@ namespace ELMFS.TypeTweet
 
         internal static void Add(string mentionMatch)
         {
-            throw new NotImplementedException();
+            TweetMentions.Add(mentionMatch);
         }
     }
 }

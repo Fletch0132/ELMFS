@@ -15,7 +15,7 @@ namespace ELMFS.TypeSms
     class SMS:Message
     {
         #region Sender
-        public static bool SmsSender(string mainSender)
+        public static string SmsSender(string mainSender)
         {
             //Validate input is numeric
             int count = 0;
@@ -25,7 +25,8 @@ namespace ELMFS.TypeSms
                 if (c < '0' || c > '9')
                 {
                     System.Windows.MessageBox.Show("Error: SMS Sender must be numeric.");
-                    return false;
+                    mainSender = null;
+                    return mainSender;
                 }
             }
 
@@ -33,11 +34,12 @@ namespace ELMFS.TypeSms
             if ((count >= 12) || (count <= 10))
             {
                 System.Windows.MessageBox.Show("Error: SMS Sender needs to be 11 digits long.");
-                return false;
+                mainSender = null;
+                return mainSender;
             }
             else
             {
-                return true;
+                return mainSender;
             }
         }
         #endregion

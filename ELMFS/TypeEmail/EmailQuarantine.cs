@@ -22,12 +22,9 @@ namespace ELMFS.TypeEmail
 
         internal void Add(string url)
         {
-            Quarantine.Add()
+            Quarantine.Add(url);
         }
 
-        internal static bool Contains(string url)
-        {
-            throw new NotImplementedException();
-        }
+        internal static bool Contains(string url) => EmailQuarantine.Contains(url);
     }
 }

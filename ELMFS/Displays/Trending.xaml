@@ -19,8 +19,13 @@
 
         <!--Button-->
         <StackPanel Grid.Column="1">
-            <Button x:Name="btnExit" Width="80" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,5,5" Click="btnExit_Click">
+            <Button x:Name="btnExit" Width="80" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,70,5,5" Click="btnExit_Click">
                 Exit
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Button x:Name="btnAdd" Width="80" Height="35" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,5,5" Click="btnExit_Click">
+                Add
             </Button>
         </StackPanel>
     </Grid>

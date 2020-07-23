@@ -188,14 +188,14 @@ namespace ELMFS
                     //call SMS method and pass user input
                     SMS.SmsSender(mainSender);
 
-                    if (SMS.SmsSender(mainSender))
+                    if (mainSender == null)
                     {
-                        //complete
-                        finalSender = mainSender;
+                        return;
                     }
                     else
                     {
-                        return;
+                        //complete
+                        finalSender = mainSender;
                     }
                 }
                 else if (mainType == "E")
@@ -203,7 +203,7 @@ namespace ELMFS
                     //call Email Method and pass user input
                     Email.EmailSender(mainSender);
 
-                    if (Email.EmailSender(mainSender))
+                    if (mainSender != null)
                     {
                         //complete
                         finalSender = mainSender;
@@ -218,7 +218,7 @@ namespace ELMFS
                     //call Tweet Method and pass user input
                     Tweet.TweetSender(mainSender);
 
-                    if (Tweet.TweetSender(mainSender))
+                    if (mainSender != null)
                     {
                         //Complete
                         finalSender = mainSender;

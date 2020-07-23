@@ -22,7 +22,7 @@ namespace ELMFS.TypeTweet
 
         internal void Add(string hashtagMatch)
         {
-            throw new NotImplementedException();
+            Hashtags.Add(hashtagMatch);
         }
     }
 }

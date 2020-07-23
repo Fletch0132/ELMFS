@@ -16,7 +16,7 @@ namespace ELMFS.TypeTweet
     class Tweet : Message
     {
         #region Sender
-        public static bool TweetSender(string mainSender)
+        public static string TweetSender(string mainSender)
         {
             //Regex for ID
             //Regex rxTweetSender = new Regex(@"\s(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9-_]+)");
@@ -31,16 +31,18 @@ namespace ELMFS.TypeTweet
             if(senderOne != "@")
             {
                 System.Windows.MessageBox.Show("Error: Twitter ID must start with '@'");
-                return false;
+                mainSender = null;
+                return mainSender;
             }
             else if (senderTwo.Length > 15)
             {
                 System.Windows.MessageBox.Show("Error: Length of sender must be 16 characters including '@' at the start.");
-                return false;
+                mainSender = null;
+                return mainSender;
             }
             else
             {
-                return true;
+                return mainSender;
             }
         }
         #endregion
