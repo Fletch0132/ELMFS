@@ -95,32 +95,26 @@
         </StackPanel>
         
         
-        <!--Messages Button-->
-        <StackPanel Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button x:Name="btnSavedMessage" Width="100" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnSavedMessage_Click">
-                <TextBlock TextWrapping="WrapWithOverflow">Saved Messages</TextBlock>
-            </Button>
-        </StackPanel>
         
         <!--Significant Incident Reports Button-->
-        <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button x:Name="btnSIR" Width="100" Height="35" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnSIR_Click">
                 <TextBlock TextWrapping="WrapWithOverflow"> Significant Incident Report</TextBlock>
             </Button>
         </StackPanel>
         
         <!--Trending Button-->
-        <StackPanel Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button x:Name="btnTrending" Width="100" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnTrending_Click">Trending</Button>
         </StackPanel>
         
         <!--Mentions Button-->
-        <StackPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button x:Name="btnMentions" Width="100" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnMentions_Click">Mentions</Button>
         </StackPanel>
         
         <!--Quarantine Button-->
-        <StackPanel Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button x:Name="btnQuarantine" Width="100" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnQuarantine_Click">Quarantine</Button>
         </StackPanel>
 
