@@ -70,9 +70,6 @@
     <Compile Include="Displays\Mentions.xaml.cs">
       <DependentUpon>Mentions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Displays\Messages.xaml.cs">
-      <DependentUpon>Messages.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Displays\Quarantine.xaml.cs">
       <DependentUpon>Quarantine.xaml</DependentUpon>
     </Compile>
@@ -87,13 +84,7 @@
     <Compile Include="TypeEmail\Email.cs" />
     <Compile Include="TypeSms\SMS.cs" />
     <Compile Include="TypeTweet\Tweet.cs" />
-    <Compile Include="TypeTweet\TweetHashtags.cs" />
-    <Compile Include="TypeTweet\TweetMentions.cs" />
     <Page Include="Displays\Mentions.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Displays\Messages.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,8 +131,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

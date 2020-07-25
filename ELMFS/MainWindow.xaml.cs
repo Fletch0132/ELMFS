@@ -37,19 +37,8 @@ namespace ELMFS
             txtSCC.IsEnabled = false;
             txtNOI.IsEnabled = false;
 
-            //Fill combobox
-            //txtNOI.Items.Add("No Significant Incident");
-            //txtNOI.Items.Add("Theft of Properties");
         }
 
-        //completed message list for diaplying message in list box (couldn't get it to read from file)
-        /*private List<string> compMess = new List<string>();
-
-        public List<String> GetcompmessList()
-        {
-            return compMess;
-        }
-        */
 
         #region Clear All
         //Clear everything when called
@@ -141,12 +130,6 @@ namespace ELMFS
 
             //file path
             string filepath = @"D:\University\Year 3\SoftwareEngineering\messages.txt";
-
-            //if JSON file doesn't exist, create new
-            //if (!File.Exists(filepath))
-            //{
-                //File.WriteAllText(filepath, "messages");
-            //}
 
             #endregion
 

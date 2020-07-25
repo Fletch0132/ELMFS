@@ -18,11 +18,6 @@ namespace ELMFS.TypeTweet
         #region Sender
         public static string TweetSender(string mainSender)
         {
-            //Regex for ID
-            //Regex rxTweetSender = new Regex(@"\s(?<=^|(?<=[^a-zA-Z0-9-_\.]))@([A-Za-z]+[A-Za-z0-9-_]+)");
-            //Match
-            //Match matchSender = rxTweetSender.Match(mainSender);
-
             //split main sender
             string senderOne = mainSender.Substring(0, 1);
             string senderTwo = mainSender.Substring(1);
@@ -54,10 +49,6 @@ namespace ELMFS.TypeTweet
         {
             //check for textspeak
             mainMessage = Textspeak.TextSpeak(mainMessage);
-
-            //Initialize Lists
-            //TweetHashtags tweetHashtags = new TweetHashtags();
-            //TweetMentions tweetMentions = new TweetMentions();
 
             //Match Pattern
             const string hashtag = @"#([A-Za-z0-9\-_&;]+)";
