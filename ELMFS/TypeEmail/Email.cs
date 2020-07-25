@@ -107,9 +107,7 @@ namespace ELMFS.TypeEmail
         public static void EmailSIRList(string finalSubject, string finalSCC, string finalNOI, ref List<string> eSIR)
         {
             //add subject, SCC and NOI to list 
-            eSIR.Add("Subject: " + finalSubject);
-            eSIR.Add("Sports Centre Code: " + finalSCC);
-            eSIR.Add("Nature of Incident: " + finalNOI);
+            eSIR.Add(string.Format("{0} - {1}", finalNOI, finalSCC));
         }
 
         #endregion
@@ -120,25 +118,19 @@ namespace ELMFS.TypeEmail
         public static string EmailMessage(string mainMessage, ref List<string> eQuarantine)
         {
             //Create URL Regex
-            const string hyperlink = (@"^(http|http(s)?://)?([\w-]+\.)+[\w-]+[.com|.in|.org]+(\[\?%&=]*)?");
-
-            //Quarantine List
-            //EmailQuarantine emailQuarantine = new EmailQuarantine();
+            Regex hyperlink = new Regex(@"(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-z-A-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)"); 
 
             //Search through message for URL(s) and replace
-            foreach(Match match in Regex.Matches(mainMessage, hyperlink))
+            foreach(Match match in hyperlink.Matches(mainMessage))
             {
-                var url = match.Groups[1].Value;
-
-                //if the url isn#t in list then add it
-                if (!eQuarantine.Contains(url))
-                {
-                    eQuarantine.Add(url);
-                }
-
-                //replace url with Quarantine
-                mainMessage = mainMessage.Replace(hyperlink.ToString(), "<URL Quarantined>");
+                eQuarantine.Add(match.Value.ToString());
+                System.Windows.MessageBox.Show(match.Value.ToString());
             }
+
+            //Replace URL with string
+            string URL = (@"(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-z-A-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)");
+            string replacement = ("<URL Quarantined>");
+            mainMessage = Regex.Replace(mainMessage, URL, replacement);
 
             //return
             return mainMessage;

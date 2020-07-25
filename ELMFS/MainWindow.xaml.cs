@@ -358,7 +358,7 @@ namespace ELMFS
 
             #region Nature of Incident
             //store Nature of Incident selection
-            mainNOI = txtNOI.SelectedIndex.ToString();
+            mainNOI = txtNOI.SelectionBoxItem.ToString();
 
             if ((mainHeader.Substring(0, 1).ToUpper() == "E") && (txtNOI.SelectedIndex <0) && (txtNOI.SelectedIndex >12))
             {
@@ -559,6 +559,7 @@ namespace ELMFS
             Messages.Show();
         }
         #endregion
+
     }
 
 }
