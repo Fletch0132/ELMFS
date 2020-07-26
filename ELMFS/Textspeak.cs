@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Author: Fletcher Thomas Moore
+//Description: Contains function to expand Textspeak within the message. Connected to MainWindow.xaml.cs and Tweet.cs
+//Start Date: 29/06/2020
+//End Date: 22/07/2020
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

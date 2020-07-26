@@ -1,7 +1,7 @@
 ﻿//Author: Fletcher Thomas Moore
-//Description: Handles the message as a whole, writing the inputs to a JSON format file. Connected to MainWindow.xaml.cs
+//Description: Sets up the DataContract for the template for writing message to file. Connected to MainWindow.xaml.cs
 //Start Date: 29/06/2020
-//End Date: 
+//End Date: 22/07/2020
 using System;
 using System.Collections.Generic;
 using System.IO;

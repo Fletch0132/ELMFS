@@ -1,7 +1,7 @@
 ﻿//Author: Fletcher Thomas Moore
 //Description: Deals with the user input, validation and other functions/operations involving the user interface
 //Start Date: 29/06/2020
-//End Date: 
+//End Date: 22/07/2020
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -358,7 +358,7 @@ namespace ELMFS
 
             #region Write to SIR List
             //pass subject, SCC and NOI to write to SIR List
-            if (txtNOI.SelectedIndex == -1)
+            if (txtNOI.SelectedIndex >0 )
             {
                 Email.EmailSIRList(finalSubject, finalSCC, finalNOI, ref mSIR);
             }
@@ -534,14 +534,6 @@ namespace ELMFS
         }
         #endregion
 
-        #region Button Messages
-        private void btnSavedMessage_Click(object sender, RoutedEventArgs e)
-        {
-            //When button clicked change view
-            Window Messages = new Messages();
-            Messages.Show();
-        }
-        #endregion
 
     }
 

@@ -1,7 +1,7 @@
 ﻿//Author: Fletcher Thomas Moore
-//Description: Handles the Email type Messages and connects to the MainWindow.xaml.cs, EmailQuarantine.cs and EmailSIR.cs
+//Description: Handles the Email type Messages and connects to the MainWindow.xaml.cs
 //Start Date: 29/06/2020
-//End Date: 
+//End Date: 22/07/2020
 using System;
 using System.Collections.Generic;
 using System.Linq;
